@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ─── Design Tokens ─── */
+:root {
+  /* Fonts */
+  --font-display: var(--font-space-grotesk), 'Space Grotesk', sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, sans-serif;
+
+  /* Neutral scale — warm whites & grays */
+  --color-bg:          #FFFFFF;
+  --color-bg-subtle:   #F8F7F5;
+  --color-bg-muted:    #F0EDE8;
+  --color-text:        #1A1A1A;
+  --color-text-sec:    #5C5757;
+  --color-text-muted:  #9A9590;
+  --color-border:      #E8E4DF;
+  --color-border-strong: #D0CBC4;
+
+  /* Build accent — Safety Orange */
+  --color-orange:       #E84B00;
+  --color-orange-light: #FFF3EE;
+  --color-orange-mid:   #FFCFB8;
+  --color-orange-dark:  #B83A00;
+
+  /* Wood accent — Warm Brown */
+  --color-wood:         #7A4E2D;
+  --color-wood-light:   #FDF5ED;
+  --color-wood-mid:     #E8D2B4;
+  --color-wood-dark:    #5C3820;
+
+  /* Shared dark for hero sections */
+  --color-dark:    #111111;
+  --color-dark-2:  #1C1C1C;
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    overflow-x: hidden;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-orange-mid);
+    color: var(--color-text);
+  }
+}
+
+/* ─── Scroll reveal ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
