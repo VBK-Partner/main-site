@@ -1,29 +1,36 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function ScrollReveal() {
-  const initialized = useRef(false)
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (initialized.current) return
-    initialized.current = true
+    // Reset all reveal elements to hidden state on route change
+    document.querySelectorAll('.reveal.visible').forEach((el) => {
+      el.classList.remove('visible')
+    })
 
-    const els = document.querySelectorAll('.reveal')
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('visible')
-            obs.unobserve(e.target)
-          }
-        })
-      },
-      { threshold: 0, rootMargin: '0px 0px -40px 0px' }
-    )
-    els.forEach((el) => obs.observe(el))
-    return () => obs.disconnect()
-  }, [])
+    // Small delay so Next.js finishes painting the new page DOM
+    const timer = setTimeout(() => {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add('visible')
+              obs.unobserve(e.target)
+            }
+          })
+        },
+        { threshold: 0, rootMargin: '0px 0px -40px 0px' }
+      )
+      document.querySelectorAll('.reveal').forEach((el) => obs.observe(el))
+      return () => obs.disconnect()
+    }, 60)
+
+    return () => clearTimeout(timer)
+  }, [pathname])
 
   return null
 }
