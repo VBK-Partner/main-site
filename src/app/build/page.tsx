@@ -7,6 +7,7 @@ import BuildExpertise from '@/components/build/BuildExpertise'
 import BuildPortfolio from '@/components/build/BuildPortfolio'
 import BuildQuiz from '@/components/build/BuildQuiz'
 import MobileCtaBar from '@/components/shared/MobileCtaBar'
+import Footer from '@/components/shared/Footer'
 
 export const metadata: Metadata = {
   title: 'Будівництво промислових об\'єктів під ключ | VBK Partner',
@@ -49,6 +50,7 @@ export default function BuildPage() {
             </a>
           </div>
         </section>
+        <Footer />
       </main>
       <MobileCtaBar accent="orange" href="#quiz" label="Розрахувати вартість" />
     </>

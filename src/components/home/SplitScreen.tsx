@@ -5,9 +5,39 @@ import { useState } from 'react'
 import { ArrowRight, Phone } from 'lucide-react'
 
 const STATS = [
-  { num: '200+',  label: "реалізованих об'єктів" },
-  { num: '1000+', label: 'м³ деревини на рік' },
-  { num: 'Київ',  label: 'та вся Україна' },
+  { num: '200+',       label: 'успішних проектів' },
+  { num: '10 000 м³',  label: 'деревини на рік' },
+  { num: '10+',        label: 'років на ринку' },
+]
+
+const MESSENGERS = [
+  {
+    name: 'Viber',
+    href: 'viber://chat?number=%2B380000000000',
+    icon: (
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+        <path d="M11.4 0c-1.6.1-4.6.4-6.3 2C3.9 3.3 3.4 5.2 3.3 7.5c0 2.4-.1 6.7 4 7.9v1.8s0 .7.5.9c.6.2.9-.4 1.4-1l.9-1c2.9.2 5.1-.4 5.4-.5.6-.2 3.7-.6 4.3-4.9.5-4.5-.3-7.3-1.7-8.6C17.3.4 14.4 0 12.7 0h-1.3zm.1 1.9h.1c1.4 0 4 .3 5.1 1.4 1.1 1 1.6 3.5 1.2 7.4-.4 3.6-2.6 3.9-3.1 4-.3.1-2.2.6-4.8.4-.8.8-1.4 1.4-1.7 1.7l-.4.4s-.1.1-.2.1c-.1 0-.1-.1-.1-.2v-2.1c-3.5-1-3.3-4.5-3.2-6.6.1-2 .6-3.5 1.5-4.4.9-.9 3-1.2 4.4-1.2l1.2.1z"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'Telegram',
+    href: 'https://t.me/+380000000000',
+    icon: (
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+      </svg>
+    ),
+  },
+  {
+    name: 'WhatsApp',
+    href: 'https://wa.me/380000000000',
+    icon: (
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+        <path d="M20.5 3.5C18.3 1.2 15.3 0 12 0 5.4 0 0 5.4 0 12c0 2.1.5 4.2 1.6 6L0 24l6.2-1.6c1.7.9 3.7 1.5 5.8 1.5 6.6 0 12-5.4 12-12 0-3.3-1.3-6.3-3.5-8.4zm-3 14.9c-.3.6-1.4 1.2-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-.9-.3-1.6-.6-2.8-1.2-4.7-4-4.8-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.2-.2.5-.3.7-.3h.5c.2.1.4 0 .6.5.2.6.8 1.9.8 2 .1.2.1.3 0 .5-.1.2-.2.3-.3.5-.1.2-.3.4-.4.5-.1.1-.3.3-.1.6.2.3.8 1.2 1.6 2 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1.1-.2.6-.8.8-1 .2-.2.3-.2.6-.1.3.1 1.6.8 1.9.9.3.1.5.2.6.3 0 .1 0 .7-.2 1.3z"/>
+      </svg>
+    ),
+  },
 ]
 
 export default function SplitScreen() {
@@ -25,14 +55,24 @@ export default function SplitScreen() {
         <span className="text-white font-bold tracking-[0.12em] uppercase text-sm select-none">
           ВБК<span style={{ color: 'var(--color-orange)' }}>·</span>ПАРТНЕР
         </span>
-        <a href="tel:+380000000000"
-          className="flex items-center gap-2 text-sm font-medium transition-colors"
-          style={{ color: 'rgba(255,255,255,0.7)' }}
-          onMouseEnter={e => (e.currentTarget.style.color = 'white')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.7)')}>
-          <Phone size={14} strokeWidth={1.5} />
-          <span className="hidden sm:inline">+38 (000) 000-00-00</span>
-        </a>
+        <div className="flex items-center gap-4">
+          <a href="tel:+380000000000"
+            className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-white"
+            style={{ color: 'rgba(255,255,255,0.7)' }}>
+            <Phone size={14} strokeWidth={1.5} />
+            <span className="hidden sm:inline">+38 (000) 000-00-00</span>
+          </a>
+          <div className="flex items-center gap-2 pl-3 ml-1" style={{ borderLeft: '1px solid rgba(255,255,255,0.18)' }}>
+            {MESSENGERS.map(m => (
+              <a key={m.name} href={m.href} target="_blank" rel="noopener noreferrer"
+                aria-label={m.name}
+                className="w-7 h-7 flex items-center justify-center rounded-full transition-all hover:scale-110"
+                style={{ color: 'rgba(255,255,255,0.75)', background: 'rgba(255,255,255,0.10)' }}>
+                {m.icon}
+              </a>
+            ))}
+          </div>
+        </div>
       </header>
 
       {/* ─── Panels ─── */}
@@ -50,7 +90,7 @@ export default function SplitScreen() {
           <img src="/images/building-banner.png" alt="" aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{
-              filter: `brightness(${hovered === 'build' ? 0.5 : 0.38})`,
+              filter: `brightness(${hovered === 'build' ? 0.5 : hovered === 'wood' ? 0.18 : 0.38})`,
               transform: `scale(${hovered === 'build' ? 1.04 : 1})`,
               transition: 'transform 600ms ease, filter 600ms ease',
             }} />
@@ -58,6 +98,13 @@ export default function SplitScreen() {
           {/* Gradient */}
           <div className="absolute inset-0"
             style={{ background: 'linear-gradient(160deg, transparent 30%, rgba(0,0,0,0.75) 100%)' }} />
+          {/* Dim overlay when opposite is hovered */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'rgba(0,0,0,0.55)',
+              opacity: hovered === 'wood' ? 1 : 0,
+              transition: 'opacity 440ms ease',
+            }} />
           {/* Orange glow on hover */}
           <div className="absolute inset-0 pointer-events-none"
             style={{
@@ -70,28 +117,28 @@ export default function SplitScreen() {
           <div className="absolute top-0 right-0 bottom-0 w-px hidden md:block"
             style={{ background: 'rgba(255,255,255,0.1)' }} />
 
-          {/* Content */}
+          {/* Content — fixed-width inner so it doesn't reflow when panel resizes */}
           <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 pt-20 pb-24 md:pb-20">
             <span className="text-xs font-bold tracking-[0.28em] uppercase"
               style={{ color: 'var(--color-orange)' }}>
               01 — Будівництво
             </span>
 
-            <div>
-              <h2 className="font-black uppercase text-white leading-[0.9] mb-6"
-                style={{ fontSize: 'clamp(2.4rem,4.2vw,5.2rem)', letterSpacing: '-0.025em' }}>
+            <div style={{ width: 'min(560px, 92%)' }}>
+              <h2 className="font-extrabold uppercase text-white mb-6"
+                style={{ fontSize: 'clamp(1.9rem,3.4vw,4.2rem)', lineHeight: 1.08, letterSpacing: '-0.02em' }}>
                 Будівництво<br />та реконструкція<br />
-                <span style={{ color: 'var(--color-orange)' }}>комерційних об'єктів</span>
+                <span style={{ color: 'var(--color-orange)' }}>комерційних,<br />виробничих об&apos;єктів</span>
               </h2>
-              <p className="text-white/50 leading-relaxed mb-8 max-w-xs"
-                style={{ fontSize: 'clamp(0.8rem,1.05vw,0.95rem)' }}>
-                Офіси, склади, виробництва,<br />котельні — під ключ.
+              <p className="text-white/55 mb-8"
+                style={{ fontSize: 'clamp(0.85rem,1vw,0.98rem)', lineHeight: 1.65, maxWidth: '40ch' }}>
+                Комплексне нове будівництво, реконструкція та капітальний ремонт офісів, складів, виробництв, об&apos;єктів HoReCa, будівництво та монтаж твердопаливних котелень.
               </p>
-              <div className="flex items-center gap-4 group">
+              <div className="flex items-center gap-4">
                 <span className="font-semibold uppercase tracking-[0.14em] text-sm text-white">
                   Обговорити проєкт
                 </span>
-                <span className="w-9 h-9 flex items-center justify-center border border-white/25 transition-all duration-250"
+                <span className="w-9 h-9 flex items-center justify-center border border-white/25"
                   style={{
                     background: hovered === 'build' ? 'var(--color-orange)' : 'transparent',
                     borderColor: hovered === 'build' ? 'var(--color-orange)' : 'rgba(255,255,255,0.25)',
@@ -116,7 +163,7 @@ export default function SplitScreen() {
           <img src="/images/wood-banner.png" alt="" aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{
-              filter: `brightness(${hovered === 'wood' ? 0.5 : 0.38}) sepia(15%)`,
+              filter: `brightness(${hovered === 'wood' ? 0.5 : hovered === 'build' ? 0.18 : 0.38}) sepia(15%)`,
               transform: `scale(${hovered === 'wood' ? 1.04 : 1})`,
               transition: 'transform 600ms ease, filter 600ms ease',
             }} />
@@ -124,6 +171,13 @@ export default function SplitScreen() {
           {/* Gradient */}
           <div className="absolute inset-0"
             style={{ background: 'linear-gradient(200deg, transparent 30%, rgba(0,0,0,0.75) 100%)' }} />
+          {/* Dim overlay when opposite is hovered */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{
+              background: 'rgba(0,0,0,0.55)',
+              opacity: hovered === 'build' ? 1 : 0,
+              transition: 'opacity 440ms ease',
+            }} />
           {/* Wood glow on hover */}
           <div className="absolute inset-0 pointer-events-none"
             style={{
@@ -132,30 +186,29 @@ export default function SplitScreen() {
               transition: 'opacity 500ms ease',
             }} />
 
-          {/* Content — right-aligned */}
-          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 pt-20 pb-24 md:pb-20
-                          items-end text-right">
+          {/* Content — right-aligned, fixed-width inner */}
+          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 pt-20 pb-24 md:pb-20 items-end text-right">
             <span className="text-xs font-bold tracking-[0.28em] uppercase"
               style={{ color: 'var(--color-wood-mid)' }}>
               02 — Пиломатеріали
             </span>
 
-            <div>
-              <h2 className="font-black uppercase leading-[0.9] mb-6"
-                style={{ fontSize: 'clamp(2.4rem,4.2vw,5.2rem)', letterSpacing: '-0.025em', color: '#F5EDD8' }}>
-                Пиломатеріали<br />власного<br />
-                <span style={{ color: 'var(--color-wood-mid)' }}>виробництва</span>
+            <div style={{ width: 'min(540px, 92%)' }}>
+              <h2 className="font-extrabold uppercase mb-6"
+                style={{ fontSize: 'clamp(1.9rem,3.4vw,4.2rem)', lineHeight: 1.08, letterSpacing: '-0.02em', color: '#F5EDD8' }}>
+                Пиломатеріали<br />
+                <span style={{ color: 'var(--color-wood-mid)' }}>власного виробництва</span>
               </h2>
-              <p className="leading-relaxed mb-8 max-w-xs ml-auto"
-                style={{ fontSize: 'clamp(0.8rem,1.05vw,0.95rem)', color: 'rgba(245,237,216,0.5)' }}>
-                Брус, дошка, вагонка, палети —<br />оптом для бізнесу.
+              <p className="mb-8 ml-auto"
+                style={{ fontSize: 'clamp(0.85rem,1vw,0.98rem)', lineHeight: 1.65, color: 'rgba(245,237,216,0.55)', maxWidth: '40ch' }}>
+                Прямі поставки бруса, дошки, палет з виробництва. Опт для бізнесу.
               </p>
               <div className="flex items-center justify-end gap-4">
                 <span className="font-semibold uppercase tracking-[0.14em] text-sm"
                   style={{ color: '#F5EDD8' }}>
                   Замовити прайс
                 </span>
-                <span className="w-9 h-9 flex items-center justify-center border transition-all duration-250"
+                <span className="w-9 h-9 flex items-center justify-center border"
                   style={{
                     background: hovered === 'wood' ? 'var(--color-wood)' : 'transparent',
                     borderColor: hovered === 'wood' ? 'var(--color-wood)' : 'rgba(245,237,216,0.25)',
@@ -171,14 +224,14 @@ export default function SplitScreen() {
 
       {/* ─── Stats bar ─── */}
       <div className="absolute bottom-0 left-0 right-0 z-20 hidden md:flex"
-        style={{ background: 'rgba(0,0,0,0.72)', backdropFilter: 'blur(14px)', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
+        style={{ background: 'rgba(0,0,0,0.78)', backdropFilter: 'blur(14px)', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
         {STATS.map(({ num, label }, i) => (
           <div key={label} className="flex-1 flex items-center justify-center gap-3 py-4"
             style={{ borderLeft: i > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
             <span className="font-bold text-white text-lg" style={{ letterSpacing: '-0.02em' }}>
               {num}
             </span>
-            <span className="text-xs tracking-[0.08em]" style={{ color: 'rgba(255,255,255,0.38)' }}>
+            <span className="text-xs tracking-[0.08em]" style={{ color: 'rgba(255,255,255,0.45)' }}>
               {label}
             </span>
           </div>

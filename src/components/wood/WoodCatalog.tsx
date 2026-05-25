@@ -2,33 +2,35 @@
 
 import { useState } from 'react'
 
-type Category = 'all' | 'vahonka' | 'brus' | 'doshka' | 'palety' | 'inше'
+type Category = 'all' | 'brus' | 'doshka' | 'palety' | 'reyka' | 'inshe'
 
 const ITEMS = [
-  { cat: 'vahonka', name: 'Вагонка сосна',        dims: 'усі розміри',    price: 'уточнити',          photo: 'https://picsum.photos/seed/cladding1/400/260' },
-  { cat: 'vahonka', name: 'Терасна дошка',         dims: 'різні кольори',  price: 'уточнити',          photo: 'https://picsum.photos/seed/deck1/400/260' },
-  { cat: 'vahonka', name: 'Дошка для підлоги',     dims: '35 мм, 80–135 мм', price: 'уточнити',        photo: 'https://picsum.photos/seed/floor1/400/260' },
-  { cat: 'vahonka', name: 'Імітація бруса',        dims: 'усі розміри',    price: 'уточнити',          photo: 'https://picsum.photos/seed/imitation1/400/260' },
-  { cat: 'brus',    name: 'Брус обрізний',         dims: '200×200, 150×150, 100×100', price: 'від 4 990 грн/м³', photo: 'https://picsum.photos/seed/beam1/400/260' },
-  { cat: 'brus',    name: 'Брус сухий строганий',  dims: 'усі розміри',    price: 'від 7 490 грн/м³', photo: 'https://picsum.photos/seed/beam2/400/260' },
-  { cat: 'brus',    name: 'Брус свіжопил',         dims: 'усі розміри',    price: 'від 4 990 грн/м³', photo: 'https://picsum.photos/seed/beam3/400/260' },
-  { cat: 'doshka',  name: 'Дошка свіжопил',        dims: 'усі розміри',    price: 'від 4 990 грн/м³', photo: 'https://picsum.photos/seed/board1/400/260' },
-  { cat: 'doshka',  name: 'Дошка суха строганна',  dims: 'усі розміри',    price: 'від 7 490 грн/м³', photo: 'https://picsum.photos/seed/board2/400/260' },
-  { cat: 'doshka',  name: 'Сухостій',              dims: 'усі розміри',    price: 'уточнити',          photo: 'https://picsum.photos/seed/board3/400/260' },
-  { cat: 'palety',  name: 'Палети EUR/EPAL',        dims: '1200×800 мм',    price: 'уточнити',          photo: 'https://picsum.photos/seed/pallet1/400/260' },
-  { cat: 'palety',  name: 'Піддони нестандартні',   dims: 'під замовлення', price: 'уточнити',          photo: 'https://picsum.photos/seed/pallet2/400/260' },
-  { cat: 'inше',    name: 'Фанера ламінована',      dims: 'Білорусь, Китай', price: 'уточнити',         photo: 'https://picsum.photos/seed/plywood1/400/260' },
-  { cat: 'inше',    name: 'Плити OSB',              dims: 'виробництво Україна', price: 'уточнити',     photo: 'https://picsum.photos/seed/osb1/400/260' },
-  { cat: 'inше',    name: 'Цегла червона будівельна', dims: 'М100, М125, М150', price: 'уточнити',      photo: 'https://picsum.photos/seed/brick1/400/260' },
+  { cat: 'brus',    name: 'Брус обрізний',         dims: '200×200, 150×150, 100×100 мм',   photo: 'https://picsum.photos/seed/beam1/400/260' },
+  { cat: 'brus',    name: 'Брус сухий струганий',  dims: 'усі розміри',                    photo: 'https://picsum.photos/seed/beam2/400/260' },
+  { cat: 'brus',    name: 'Брус свіжопил',         dims: 'усі розміри',                    photo: 'https://picsum.photos/seed/beam3/400/260' },
+  { cat: 'doshka',  name: 'Дошка обрізна',         dims: 'усі розміри',                    photo: 'https://picsum.photos/seed/board1/400/260' },
+  { cat: 'doshka',  name: 'Дошка стругана',        dims: 'усі розміри, камерна сушка',     photo: 'https://picsum.photos/seed/board2/400/260' },
+  { cat: 'doshka',  name: 'Терасна дошка',         dims: 'різні профілі',                  photo: 'https://picsum.photos/seed/deck1/400/260' },
+  { cat: 'doshka',  name: 'Дошка для підлоги',     dims: '35 мм, 80–135 мм',               photo: 'https://picsum.photos/seed/floor1/400/260' },
+  { cat: 'palety',  name: 'Палети EUR/EPAL',        dims: '1200×800 мм',                    photo: 'https://picsum.photos/seed/pallet1/400/260' },
+  { cat: 'palety',  name: 'Піддони нестандартні',   dims: 'під ваш розмір і вагу',          photo: 'https://picsum.photos/seed/pallet2/400/260' },
+  { cat: 'reyka',   name: 'Рейка дерев\u2019яна',  dims: 'стандартні перерізи',            photo: 'https://picsum.photos/seed/lath1/400/260' },
+  { cat: 'reyka',   name: 'Рейка під замовлення',  dims: 'нестандартні перерізи',          photo: 'https://picsum.photos/seed/lath2/400/260' },
+  { cat: 'inshe',   name: 'Євровагонка',           dims: 'усі розміри',                    photo: 'https://picsum.photos/seed/cladding1/400/260' },
+  { cat: 'inshe',   name: 'Імітація бруса',        dims: 'усі розміри',                    photo: 'https://picsum.photos/seed/imitation1/400/260' },
+  { cat: 'inshe',   name: 'Сухостій',              dims: 'усі розміри',                    photo: 'https://picsum.photos/seed/dry1/400/260' },
+  { cat: 'inshe',   name: 'Фанера ламінована',     dims: 'Білорусь, Китай',                photo: 'https://picsum.photos/seed/plywood1/400/260' },
+  { cat: 'inshe',   name: 'Плити OSB',             dims: 'Україна',                        photo: 'https://picsum.photos/seed/osb1/400/260' },
+  { cat: 'inshe',   name: 'Цегла будівельна',      dims: 'М100, М125, М150',               photo: 'https://picsum.photos/seed/brick1/400/260' },
 ]
 
 const TABS: { key: Category; label: string }[] = [
   { key: 'all',    label: 'Все' },
-  { key: 'vahonka', label: 'Вагонка' },
   { key: 'brus',   label: 'Брус' },
   { key: 'doshka', label: 'Дошка' },
   { key: 'palety', label: 'Палети' },
-  { key: 'inше',   label: 'Інше' },
+  { key: 'reyka',  label: 'Рейка' },
+  { key: 'inshe',  label: 'Сухостій та додаткові' },
 ]
 
 export default function WoodCatalog() {
@@ -62,14 +64,14 @@ export default function WoodCatalog() {
           style={{ color: 'var(--color-wood)' }}>Каталог</p>
         <h2 className="font-bold text-3xl md:text-4xl mb-10"
           style={{ color: 'var(--color-text)', letterSpacing: '-0.02em' }}>
-          Що є на складі
+          Наш асортимент продукції
         </h2>
 
         {/* Filter tabs */}
         <div className="flex flex-wrap gap-2 mb-10">
           {TABS.map(({ key, label }) => (
             <button key={key} onClick={() => setActive(key)}
-              className="px-5 py-2 text-sm font-semibold uppercase tracking-[0.1em] border transition-all"
+              className="px-5 py-2 text-sm font-semibold uppercase tracking-[0.08em] border transition-all"
               style={{
                 background: active === key ? 'var(--color-wood)' : 'transparent',
                 color:      active === key ? '#fff' : 'var(--color-text-sec)',
@@ -82,23 +84,22 @@ export default function WoodCatalog() {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
-          {filtered.map(({ name, dims, price, photo }) => (
+          {filtered.map(({ name, dims, photo }) => (
             <div key={name} className="flex flex-col border overflow-hidden group"
               style={{ background: 'var(--color-bg)', borderColor: 'var(--color-border)' }}>
-              {/* Photo */}
               <div className="h-36 overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={photo} alt={name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               </div>
               <div className="flex flex-col gap-2 p-5">
-                <h3 className="font-bold text-base" style={{ color: 'var(--color-text)' }}>{name}</h3>
+                <h3 className="font-bold text-base"
+                  style={{ color: 'var(--color-text)', lineHeight: 1.3 }}>{name}</h3>
                 <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>{dims}</p>
-                <p className="text-sm font-semibold" style={{ color: 'var(--color-wood)' }}>{price}</p>
                 <button onClick={() => { setModal(name); setPhone(''); setStatus('idle') }}
                   className="mt-2 w-full py-2.5 text-xs font-semibold uppercase tracking-[0.1em] border transition-all hover:opacity-80"
                   style={{ borderColor: 'var(--color-wood)', color: 'var(--color-wood)' }}>
-                  Уточнити наявність
+                  Уточнити наявність і ціну
                 </button>
               </div>
             </div>
@@ -119,7 +120,7 @@ export default function WoodCatalog() {
             {status === 'done' ? (
               <div className="text-center py-4">
                 <p className="font-bold text-xl mb-2" style={{ color: 'var(--color-text)' }}>Дякуємо!</p>
-                <p className="text-sm" style={{ color: 'var(--color-text-sec)' }}>Менеджер зв'яжеться найближчим часом.</p>
+                <p className="text-sm" style={{ color: 'var(--color-text-sec)' }}>Менеджер зв&apos;яжеться найближчим часом.</p>
                 <button onClick={() => setModal(null)} className="mt-6 text-sm underline" style={{ color: 'var(--color-wood)' }}>Закрити</button>
               </div>
             ) : (

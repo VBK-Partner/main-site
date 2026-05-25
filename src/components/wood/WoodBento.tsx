@@ -1,10 +1,10 @@
 import { ArrowRight } from 'lucide-react'
 
 const STATS = [
-  { num: '500+',  label: 'м³ на складі' },
-  { num: 'Без',    label: 'посередника' },
-  { num: '100%',  label: 'відповідність очікуванням' },
-  { num: 'По Україні', label: 'доставка власним транспортом' },
+  { num: '400+',            label: 'м³ постійно на складі' },
+  { num: '100%',            label: 'відповідність ДСТУ' },
+  { num: 'В день',         label: 'замовлення — відвантаження' },
+  { num: 'По Україні',   label: 'доставка власним транспортом' },
 ]
 
 export default function WoodBento() {
@@ -25,9 +25,8 @@ export default function WoodBento() {
                 style={{ color: '#F5EDD8', fontSize: 'clamp(2rem,4vw,4rem)', letterSpacing: '-0.03em' }}>
                 Від лісу<br />до готового<br />матеріалу
               </h2>
-              <p className="leading-relaxed text-sm"
-                style={{ color: 'rgba(245,237,216,0.35)', maxWidth: '30ch' }}>
-                Заготовлюємо ліс, обробляємо на власному виробництві, реалізуємо напряму. Ціна без посередників.
+              <p style={{ color: 'rgba(245,237,216,0.5)', fontSize: '0.92rem', lineHeight: 1.65, maxWidth: '36ch' }}>
+                ВБК Партнер — виробник пиломатеріалів повного циклу з власною лісозаготівельною базою та сучасними сушильними комплексами. Мінімальна ціна за куб без прихованих націнок.
               </p>
             </div>
             <a href="#quiz"

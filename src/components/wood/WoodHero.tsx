@@ -1,4 +1,4 @@
-import { ArrowRight, FileText, Phone } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function WoodHero() {
   return (
@@ -36,14 +36,14 @@ export default function WoodHero() {
 
         {/* Headline */}
         <div className="mt-6 mb-0">
-          <h1 className="font-black uppercase leading-[0.88]"
+          <h1 className="font-extrabold uppercase"
             style={{
               color: '#F5EDD8',
-              fontSize: 'clamp(2.8rem,6.5vw,7rem)',
-              letterSpacing: '-0.03em',
+              fontSize: 'clamp(2.6rem,6vw,6.6rem)',
+              lineHeight: 1.02,
+              letterSpacing: '-0.025em',
             }}>
-            Пиломатеріали<br />власного<br />
-            <em className="not-italic" style={{ color: 'var(--color-wood-mid)' }}>виробництва</em>
+            Пиломатеріали<br /><em className="not-italic" style={{ color: 'var(--color-wood-mid)' }}>власного виробництва</em>
           </h1>
         </div>
 
@@ -57,27 +57,14 @@ export default function WoodHero() {
           {/* Col 1 — Description + CTAs */}
           <div className="flex flex-col justify-between gap-8 py-8 md:pr-10"
             style={{ borderRight: '1px solid rgba(245,237,216,0.08)' }}>
-            <p className="leading-relaxed"
-              style={{ color: 'rgba(245,237,216,0.5)', fontSize: '0.88rem', maxWidth: '30ch' }}>
-              Власна лісозаготівельна база та деревообробне виробництво. Брус, дошка, вагонка, палети оптом.
+            <p style={{ color: 'rgba(245,237,216,0.55)', fontSize: '0.92rem', lineHeight: 1.65, maxWidth: '40ch' }}>
+              Брус, дошка, палети, вагонка — без переплат. Між лісом і вашим замовленням більше нікого немає.
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <a href="#quiz"
                 className="inline-flex items-center gap-3 px-6 py-3 font-bold uppercase tracking-[0.12em] text-xs text-white hover:opacity-90 transition-opacity"
                 style={{ background: 'var(--color-wood)' }}>
-                Замовити <ArrowRight size={13} strokeWidth={3} />
-              </a>
-              <a href="/price-list.pdf" target="_blank" rel="noopener"
-                className="inline-flex items-center gap-2 px-4 py-3 text-xs font-medium border transition-colors hover:opacity-80"
-                style={{ color: 'rgba(245,237,216,0.55)', borderColor: 'rgba(245,237,216,0.18)' }}>
-                <FileText size={13} strokeWidth={1.5} />
-                Прайс
-              </a>
-              <a href="tel:+380000000000"
-                className="inline-flex items-center gap-2 py-3 text-xs font-medium transition-opacity hover:opacity-80"
-                style={{ color: 'rgba(245,237,216,0.38)' }}>
-                <Phone size={13} strokeWidth={1.5} />
-                <span className="hidden sm:inline">+38 (000) 000-00-00</span>
+                Замовити прайс <ArrowRight size={13} strokeWidth={3} />
               </a>
             </div>
           </div>
@@ -86,9 +73,9 @@ export default function WoodHero() {
           <div className="flex flex-col justify-between py-8 md:px-10 gap-0"
             style={{ borderRight: '1px solid rgba(245,237,216,0.08)' }}>
             {[
-              { num: '500+',       label: 'м³ на складі' },
-              { num: 'Без',         label: 'посередника — пряма ціна' },
-              { num: 'По Україні', label: 'доставка власним транспортом' },
+              { num: '400+',  label: 'м³ постійно на складі' },
+              { num: '100%',  label: 'відповідність ДСТУ' },
+              { num: 'ОПТ', label: 'без посередника — пряма ціна' },
             ].map(({ num, label }, i) => (
               <div key={label} className="flex items-baseline gap-3"
                 style={{ paddingTop: i > 0 ? '1rem' : 0, borderTop: i > 0 ? '1px solid rgba(245,237,216,0.07)' : 'none' }}>
@@ -110,9 +97,8 @@ export default function WoodHero() {
               style={{ color: 'rgba(245,237,216,0.18)' }}>
               Гарантія
             </p>
-            <p className="leading-relaxed"
-              style={{ color: 'rgba(245,237,216,0.35)', fontSize: '0.85rem', maxWidth: '24ch' }}>
-              Власне виробництво — ціна без переплат і посередників.
+            <p style={{ color: 'rgba(245,237,216,0.45)', fontSize: '0.88rem', lineHeight: 1.6, maxWidth: '28ch' }}>
+              Відвантажуємо в день замовлення. Доставка по всій Україні.
             </p>
           </div>
 

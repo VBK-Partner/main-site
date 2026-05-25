@@ -6,6 +6,7 @@ import WoodExpertise from '@/components/wood/WoodExpertise'
 import WoodCatalog from '@/components/wood/WoodCatalog'
 import WoodQuiz from '@/components/wood/WoodQuiz'
 import MobileCtaBar from '@/components/shared/MobileCtaBar'
+import Footer from '@/components/shared/Footer'
 
 export const metadata: Metadata = {
   title: "Пиломатеріали від виробника — дошка, брус, рейка | VBK Partner",
@@ -24,8 +25,8 @@ export default function WoodPage() {
     <>
       <StickyHeader
         accent="wood"
-        ctaHref="/price-list.pdf"
-        ctaLabel="Завантажити прайс"
+        ctaHref="#quiz"
+        ctaLabel="Замовити прайс"
       />
       <main>
         <WoodHero />
@@ -47,8 +48,9 @@ export default function WoodPage() {
             </a>
           </div>
         </section>
+        <Footer />
       </main>
-      <MobileCtaBar accent="wood" href="#quiz" label="Отримати прайс-лист" />
+      <MobileCtaBar accent="wood" href="#quiz" label="Замовити прайс" />
     </>
   )
 }

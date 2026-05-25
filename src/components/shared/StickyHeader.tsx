@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { Phone, ArrowLeft } from 'lucide-react'
+import { ArrowLeft } from 'lucide-react'
 
 interface StickyHeaderProps {
   accent: 'orange' | 'wood'
@@ -46,7 +46,6 @@ export default function StickyHeader({ accent, ctaHref, ctaLabel }: StickyHeader
       <a href={ctaHref}
         className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.1em] px-5 py-2 transition-all duration-200 hover:opacity-85"
         style={{ background: accentColor, color: 'white' }}>
-        <Phone size={12} strokeWidth={2} />
         <span className="hidden sm:inline">{ctaLabel}</span>
         <span className="sm:hidden">Зв&apos;язок</span>
       </a>

@@ -36,13 +36,13 @@ export default function BuildHero() {
 
         {/* ── Headline ── */}
         <div className="mt-6 mb-0">
-          <h1 className="font-black uppercase text-white leading-[0.88]"
+          <h1 className="font-extrabold uppercase text-white"
             style={{
-              fontSize: 'clamp(2.8rem,6.5vw,7rem)',
-              letterSpacing: '-0.03em',
+              fontSize: 'clamp(2.6rem,6vw,6.6rem)',
+              lineHeight: 1.02,
+              letterSpacing: '-0.025em',
             }}>
-            Будівельно-<br />ремонтні<br />
-            <em className="not-italic" style={{ color: 'var(--color-orange)' }}>роботи</em>
+            Будівельно-<br />ремонтні <em className="not-italic" style={{ color: 'var(--color-orange)' }}>роботи</em>
           </h1>
         </div>
 
@@ -56,19 +56,21 @@ export default function BuildHero() {
           {/* Col 1 — Description + CTAs */}
           <div className="flex flex-col justify-between gap-8 py-8 md:pr-10"
             style={{ borderRight: '1px solid rgba(255,255,255,0.1)' }}>
-            <p className="leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', maxWidth: '30ch' }}>
-              Виробничо-будівельна компанія з повним циклом робіт — нове будівництво, реконструкція, капітальний ремонт.
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.65, maxWidth: '38ch' }}>
+              Виконуємо будівельно-ремонтні роботи на комерційних і виробничих об&apos;єктах будь-якої складності. Від окремого виду робіт до повного циклу. Будівництво та монтаж твердопаливних котелень. Безкоштовний виїзд інженера на об&apos;єкт та прозорий кошторис до початку робіт — ви точно знаєте вартість і терміни ще до підписання договору.
             </p>
-            <div className="flex flex-wrap items-center gap-3">
+            <div className="flex flex-col items-start gap-3">
               <a href="#quiz"
                 className="inline-flex items-center gap-3 px-6 py-3 text-white font-bold uppercase tracking-[0.12em] text-xs hover:opacity-90 transition-opacity"
                 style={{ background: 'var(--color-orange)' }}>
                 Залишити заявку <ArrowRight size={13} strokeWidth={3} />
               </a>
+              <span className="text-[11px] tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.45)' }}>
+                Виїзд на об&apos;єкт та кошторис — безкоштовно
+              </span>
               <a href="tel:+380000000000"
-                className="inline-flex items-center gap-2 px-4 py-3 text-xs font-medium border transition-colors hover:border-white/40"
-                style={{ color: 'rgba(255,255,255,0.55)', borderColor: 'rgba(255,255,255,0.18)' }}>
+                className="inline-flex items-center gap-2 mt-1 text-xs font-medium transition-colors hover:text-white"
+                style={{ color: 'rgba(255,255,255,0.5)' }}>
                 <Phone size={13} strokeWidth={1.5} />
                 +38 (000) 000-00-00
               </a>

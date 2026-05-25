@@ -1,7 +1,7 @@
 import { ArrowRight } from 'lucide-react'
 
 const STATS = [
-  { num: '200+',              label: "реалізованих об'єктів" },
+  { num: '200+',              label: 'успішних проектів' },
   { num: '10+',               label: 'років на ринку' },
   { num: '0 грн',              label: 'виїзд і кошторис' },
   { num: 'Київ\nта вся\nУкраїна', label: 'географія робіт' },
@@ -25,9 +25,8 @@ export default function BuildBento() {
                 style={{ fontSize: 'clamp(2rem,4vw,4rem)', letterSpacing: '-0.03em' }}>
                 Один<br />підрядник —<br />весь обсяг
               </h2>
-              <p className="leading-relaxed text-sm"
-                style={{ color: 'rgba(255,255,255,0.38)', maxWidth: '30ch' }}>
-                Матеріали власні або замовника. Профільні бригади під кожен вид робіт. Без посередниць і підрядних ланцюжків.
+              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.65, maxWidth: '36ch' }}>
+                ВБК Партнер — виробничо-будівельна компанія, яка спеціалізується на будівельно-ремонтних роботах на комерційних і виробничих об&apos;єктах та власному виробництві пиломатеріалів.
               </p>
             </div>
             <a href="#quiz"

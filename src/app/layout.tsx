@@ -1,19 +1,19 @@
 import type { Metadata } from 'next'
-import { Space_Grotesk, Inter } from 'next/font/google'
+import { Manrope, Onest } from 'next/font/google'
 import './globals.css'
 import ScrollReveal from '@/components/shared/ScrollReveal'
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-space-grotesk',
+const manrope = Manrope({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-manrope',
   display: 'swap',
 })
 
-const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500', '600'],
-  variable: '--font-inter',
+const onest = Onest({
+  subsets: ['latin', 'latin-ext', 'cyrillic'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-onest',
   display: 'swap',
 })
 
@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="uk" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html lang="uk" className={`${manrope.variable} ${onest.variable}`}>
       <body>
         <ScrollReveal />
         {children}
