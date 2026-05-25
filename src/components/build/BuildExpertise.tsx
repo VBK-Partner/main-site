@@ -47,7 +47,7 @@ const OBJECTS = [
 
 export default function BuildExpertise() {
   return (
-    <section style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
+    <section id="expertise" style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
 
       {/* Header */}
       <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-20 pb-14 md:pt-28 md:pb-16">

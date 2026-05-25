@@ -21,7 +21,7 @@ const PROJECTS = [
 
 export default function BuildPortfolio() {
   return (
-    <section className="py-20 md:py-28"
+    <section id="portfolio" className="py-20 md:py-28"
       style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
       <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
 

@@ -27,7 +27,7 @@ const ITEMS = [
 
 export default function BuildProcess() {
   return (
-    <section style={{ background: 'var(--color-dark-2)', fontFamily: 'var(--font-display)' }}>
+    <section id="process" style={{ background: 'var(--color-dark-2)', fontFamily: 'var(--font-display)' }}>
       <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-20 pb-12 md:pt-28 md:pb-14
                       flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>

@@ -43,6 +43,31 @@ export default function StickyHeader({ accent, ctaHref, ctaLabel }: StickyHeader
         </span>
       </div>
 
+      <nav className="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
+        {(accent === 'orange'
+          ? [
+              { href: '#expertise', label: 'Напрямки' },
+              { href: '#portfolio', label: 'Об\u2019єкти' },
+              { href: '#process',   label: 'Цінності' },
+              { href: '#quiz',      label: 'Заявка' },
+              { href: '/wood',      label: 'Пиломатеріали' },
+            ]
+          : [
+              { href: '#expertise', label: 'Продукція' },
+              { href: '#catalog',   label: 'Каталог' },
+              { href: '#sectors',   label: 'Для кого' },
+              { href: '#quiz',      label: 'Прайс' },
+              { href: '/build',     label: 'Будівництво' },
+            ]
+        ).map(({ href, label }) => (
+          <a key={href} href={href}
+            className="text-xs font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-100"
+            style={{ color: scrolled ? 'var(--color-text-sec)' : 'rgba(255,255,255,0.75)' }}>
+            {label}
+          </a>
+        ))}
+      </nav>
+
       <a href={ctaHref}
         className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.1em] px-5 py-2 transition-all duration-200 hover:opacity-85"
         style={{ background: accentColor, color: 'white' }}>

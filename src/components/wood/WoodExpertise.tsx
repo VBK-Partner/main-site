@@ -51,7 +51,7 @@ const SECTORS = [
 
 export default function WoodExpertise() {
   return (
-    <section style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
+    <section id="expertise" style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
 
       {/* Header */}
       <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-20 pb-14 md:pt-28 md:pb-16">
@@ -96,7 +96,7 @@ export default function WoodExpertise() {
       </div>
 
       {/* Рішення для вашої сфери */}
-      <div style={{ background: '#120D08' }}>
+      <div id="sectors" style={{ background: '#120D08' }}>
         <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto py-20 md:py-28">
           <p className="text-xs font-semibold tracking-[0.22em] uppercase mb-3"
             style={{ color: 'var(--color-wood-mid)' }}>Кому ми постачаємо</p>

@@ -58,7 +58,7 @@ export default function WoodCatalog() {
   }
 
   return (
-    <section className="py-20 md:py-28" style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
+    <section id="catalog" className="py-20 md:py-28" style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
       <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
         <p className="text-xs font-semibold tracking-[0.22em] uppercase mb-3"
           style={{ color: 'var(--color-wood)' }}>Каталог</p>
