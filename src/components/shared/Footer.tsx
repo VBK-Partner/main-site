@@ -44,12 +44,12 @@ export default function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-5"
               style={{ color: 'rgba(255,255,255,0.45)' }}>Контакти</p>
             <ul className="flex flex-col gap-2.5 mb-5" style={{ fontSize: '0.95rem' }}>
-              <li><a href="tel:+380980000000" className="hover:text-white transition-colors">+38 (098) 000-00-00</a></li>
-              <li><a href="mailto:info@vbk-partner.com" className="hover:text-white transition-colors">info@vbk-partner.com</a></li>
+              <li><a href="tel:+380960412721" className="hover:text-white transition-colors">+38 (096) 041-27-21</a></li>
+              <li><a href="mailto:vbkpartner@ukr.net" className="hover:text-white transition-colors">vbkpartner@ukr.net</a></li>
               <li style={{ color: 'rgba(255,255,255,0.55)' }}>Виробництво: Україна</li>
             </ul>
             <div className="flex items-center gap-2.5">
-              <a href="viber://chat?number=%2B380980000000" aria-label="Viber"
+              <a href="viber://chat?number=%2B380960412721" aria-label="Viber"
                 className="w-9 h-9 inline-flex items-center justify-center rounded-full border transition-colors hover:text-white"
                 style={{ borderColor: 'rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.75)' }}>
                 {VIBER}
@@ -59,7 +59,7 @@ export default function Footer() {
                 style={{ borderColor: 'rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.75)' }}>
                 {TG}
               </a>
-              <a href="https://wa.me/380980000000" aria-label="WhatsApp"
+              <a href="https://wa.me/380960412721" aria-label="WhatsApp"
                 className="w-9 h-9 inline-flex items-center justify-center rounded-full border transition-colors hover:text-white"
                 style={{ borderColor: 'rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.75)' }}>
                 {WA}

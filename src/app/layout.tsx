@@ -62,7 +62,7 @@ export default function RootLayout({
     logo: "https://vbk-partner.com/icon.svg",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+380000000000",
+      telephone: "+380960412721",
       contactType: "customer service",
       availableLanguage: "Ukrainian",
     },

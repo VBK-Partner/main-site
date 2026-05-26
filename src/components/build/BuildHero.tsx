@@ -68,11 +68,11 @@ export default function BuildHero() {
               <span className="text-[11px] tracking-[0.06em]" style={{ color: 'rgba(255,255,255,0.45)' }}>
                 Виїзд на об&apos;єкт та кошторис — безкоштовно
               </span>
-              <a href="tel:+380000000000"
+              <a href="tel:+380960412721"
                 className="inline-flex items-center gap-2 mt-1 text-xs font-medium transition-colors hover:text-white"
                 style={{ color: 'rgba(255,255,255,0.5)' }}>
                 <Phone size={13} strokeWidth={1.5} />
-                +38 (000) 000-00-00
+                +38 (096) 041-27-21
               </a>
             </div>
           </div>
