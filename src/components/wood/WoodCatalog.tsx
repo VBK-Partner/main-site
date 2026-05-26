@@ -19,9 +19,6 @@ const ITEMS = [
   { cat: 'inshe',   name: 'Євровагонка',           dims: 'усі розміри',                    photo: '/images/photo/Сухостій та інші.jpg' },
   { cat: 'inshe',   name: 'Імітація бруса',        dims: 'усі розміри',                    photo: '/images/photo/Сухостій та інші.jpg' },
   { cat: 'inshe',   name: 'Сухостій',              dims: 'усі розміри',                    photo: '/images/photo/Сухостій та інші.jpg' },
-  { cat: 'inshe',   name: 'Фанера ламінована',     dims: 'Білорусь, Китай',                photo: '/images/photo/Сухостій та інші.jpg' },
-  { cat: 'inshe',   name: 'Плити OSB',             dims: 'Україна',                        photo: '/images/photo/Сухостій та інші.jpg' },
-  { cat: 'inshe',   name: 'Цегла будівельна',      dims: 'М100, М125, М150',               photo: '/images/photo/Сухостій та інші.jpg' },
 ]
 
 const TABS: { key: Category; label: string }[] = [
