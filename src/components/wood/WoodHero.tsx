@@ -7,7 +7,7 @@ export default function WoodHero() {
 
       {/* Photo */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/wood-banner.png" alt="" aria-hidden="true"
+      <img src="/images/photo/Головна%20-%20ліс%201.jpg" alt="" aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'brightness(0.42) sepia(20%)', objectPosition: 'center 30%' }} />
 

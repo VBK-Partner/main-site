@@ -7,7 +7,7 @@ export default function BuildHero() {
 
       {/* Photo */}
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/images/building-banner.png" alt="" aria-hidden="true"
+      <img src="/images/photo/Головна%20-%20будівництво.jpg" alt="" aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'brightness(0.45)', objectPosition: 'center 35%' }} />
 

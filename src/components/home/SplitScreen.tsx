@@ -87,7 +87,7 @@ export default function SplitScreen() {
 
           {/* Photo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/building-banner.png" alt="" aria-hidden="true"
+          <img src="/images/photo/Головна%20-%20будівництво.jpg" alt="" aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{
               filter: `brightness(${hovered === 'build' ? 0.5 : hovered === 'wood' ? 0.18 : 0.38})`,
@@ -160,7 +160,7 @@ export default function SplitScreen() {
 
           {/* Photo */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/wood-banner.png" alt="" aria-hidden="true"
+          <img src="/images/photo/Головна%20-%20ліс%201.jpg" alt="" aria-hidden="true"
             className="absolute inset-0 w-full h-full object-cover"
             style={{
               filter: `brightness(${hovered === 'wood' ? 0.5 : hovered === 'build' ? 0.18 : 0.38}) sepia(15%)`,
