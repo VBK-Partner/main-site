@@ -1,5 +1,5 @@
 const BOT_TOKEN = '8795558933:AAHTaDwZf-JQwat-bb-YHXTPyq4twB0g2qg'
-const CHAT_IDS = ['311673351', '8795558933']
+const CHAT_IDS = ['311673351', '8795558933', '1433346868', '744164242']
 
 export async function sendToTelegram(message: string): Promise<boolean> {
   const token = process.env.TELEGRAM_BOT_TOKEN || BOT_TOKEN
