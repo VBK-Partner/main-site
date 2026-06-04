@@ -1,31 +1,35 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { sendToTelegram } from '@/lib/telegram'
 
+const PHONE_RE = /^\+?[\d\s\-()]{7,20}$/
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+function esc(s: unknown): string {
+  return String(s ?? '').replace(/[<>&"']/g, '')
+}
+
 export async function POST(req: NextRequest) {
   const body = await req.json()
-  const { phone, messenger, source, answers } = body
+  const { phone, email, messenger, source, answers, name, company } = body
 
-  if (!phone || typeof phone !== 'string' || !/^\+?[\d\s\-()]{7,20}$/.test(phone)) {
-    return NextResponse.json({ error: 'Invalid phone' }, { status: 400 })
+  const hasPhone = typeof phone === 'string' && PHONE_RE.test(phone)
+  const hasEmail = typeof email === 'string' && EMAIL_RE.test(email)
+
+  if (!hasPhone && !hasEmail) {
+    return NextResponse.json({ error: 'Provide phone or email' }, { status: 400 })
   }
 
-  const safeSource = String(source ?? '').replace(/[<>&"']/g, '')
-  const safeMessenger = String(messenger ?? '').replace(/[<>&"']/g, '')
-  const safeAnswers = Array.isArray(answers)
-    ? answers.map((a) => String(a).replace(/[<>&"']/g, '')).join('\n  ')
-    : ''
+  const lines: string[] = [`<b>Нова заявка — ${esc(source) || 'site'}</b>`]
+  if (name) lines.push(`👤 Імʼя: ${esc(name)}`)
+  if (company) lines.push(`🏢 Компанія: ${esc(company)}`)
+  if (hasPhone) lines.push(`📱 Телефон: <code>${esc(phone)}</code>`)
+  if (hasEmail) lines.push(`✉️ Email: <code>${esc(email)}</code>`)
+  if (messenger) lines.push(`💬 Месенджер: ${esc(messenger)}`)
+  if (Array.isArray(answers) && answers.length) {
+    lines.push(`📋 Відповіді:\n  ${answers.map(esc).join('\n  ')}`)
+  }
 
-  const message = [
-    `<b>Нова заявка — ${safeSource}</b>`,
-    `📱 Телефон: <code>${phone}</code>`,
-    `💬 Месенджер: ${safeMessenger}`,
-    safeAnswers ? `📋 Відповіді:\n  ${safeAnswers}` : '',
-  ]
-    .filter(Boolean)
-    .join('\n')
-
-  const ok = await sendToTelegram(message)
-
+  const ok = await sendToTelegram(lines.join('\n'))
   if (!ok) {
     return NextResponse.json({ error: 'Failed to send' }, { status: 500 })
   }
