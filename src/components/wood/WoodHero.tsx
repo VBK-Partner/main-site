@@ -19,13 +19,13 @@ export default function WoodHero() {
         `,
       }} />
       {/* Wood glow */}
-      <div className="absolute bottom-0 left-0 w-[600px] h-[300px] pointer-events-none"
+      <div className="absolute bottom-0 left-0 w-full sm:w-[600px] h-[300px] max-w-full pointer-events-none"
         style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(122,78,45,0.18) 0%, transparent 65%)' }} />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col flex-1
-                      px-8 md:px-14 lg:px-20 max-w-screen-xl mx-auto w-full
-                      pt-24 pb-0">
+                      px-5 sm:px-8 md:px-14 lg:px-20 max-w-screen-xl mx-auto w-full
+                      pt-20 md:pt-24 pb-0">
 
         {/* Category tag */}
         <div className="flex items-center gap-3 mb-auto pt-4">
@@ -36,11 +36,11 @@ export default function WoodHero() {
 
         {/* Headline */}
         <div className="mt-6 mb-0">
-          <h1 className="font-extrabold uppercase"
+          <h1 className="font-extrabold uppercase break-words"
             style={{
               color: '#F5EDD8',
-              fontSize: 'clamp(2.6rem,6vw,6.6rem)',
-              lineHeight: 1.02,
+              fontSize: 'clamp(1.85rem,6vw,6.6rem)',
+              lineHeight: 1.05,
               letterSpacing: '-0.025em',
             }}>
             Пиломатеріали<br /><em className="not-italic" style={{ color: 'var(--color-wood-mid)' }}>власного виробництва</em>
@@ -55,9 +55,9 @@ export default function WoodHero() {
           style={{ borderBottom: '1px solid rgba(245,237,216,0.1)' }}>
 
           {/* Col 1 — Description + CTAs */}
-          <div className="flex flex-col justify-between gap-8 py-8 md:pr-10"
+          <div className="flex flex-col justify-between gap-6 md:gap-8 py-6 md:py-8 md:pr-10"
             style={{ borderRight: '1px solid rgba(245,237,216,0.08)' }}>
-            <p style={{ color: 'rgba(245,237,216,0.55)', fontSize: '0.92rem', lineHeight: 1.65, maxWidth: '40ch' }}>
+            <p style={{ color: 'rgba(245,237,216,0.55)', fontSize: '0.92rem', lineHeight: 1.65 }} className="md:max-w-[40ch]">
               Брус, дошка, палети, вагонка — без переплат. Між лісом і вашим замовленням більше нікого немає.
             </p>
             <div className="flex flex-wrap items-center gap-3">

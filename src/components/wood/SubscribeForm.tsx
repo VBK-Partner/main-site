@@ -43,7 +43,7 @@ export default function SubscribeForm({ source }: Props) {
             className="flex-1 px-4 py-3 border text-sm outline-none"
             style={{ background: 'var(--color-bg)', borderColor: 'var(--color-border)', color: 'var(--color-text)' }} />
           <button type="submit" disabled={status === 'sending'}
-            className="px-6 py-3 text-sm font-semibold uppercase tracking-[0.1em] transition-opacity disabled:opacity-60"
+            className="px-6 py-3.5 md:py-3 text-sm font-semibold uppercase tracking-[0.1em] transition-opacity disabled:opacity-60"
             style={{ background: 'var(--color-wood)', color: '#fff' }}>
             {status === 'sending' ? 'Відправляємо...' : 'Підписатися'}
           </button>

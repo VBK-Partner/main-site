@@ -48,10 +48,10 @@ export default function ProductInquiryModal({ product, variant, open, onClose }:
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4"
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4"
       style={{ background: 'rgba(0,0,0,0.5)' }}
       onClick={e => { if (e.target === e.currentTarget) close() }}>
-      <div className="w-full max-w-sm p-8 border"
+      <div className="w-full max-w-sm p-6 md:p-8 border max-h-[calc(100vh-2rem)] overflow-y-auto"
         style={{ background: 'var(--color-bg)', borderColor: 'var(--color-border)', fontFamily: 'var(--font-display)' }}>
         {status === 'done' ? (
           <div className="text-center py-4">
@@ -81,7 +81,7 @@ export default function ProductInquiryModal({ product, variant, open, onClose }:
                 style={{ borderColor: 'var(--color-border)', color: 'var(--color-text)' }} />
               {status === 'error' && <p className="text-xs" style={{ color: '#dc2626' }}>Помилка. Спробуйте ще раз.</p>}
               <button type="submit" disabled={status === 'sending'}
-                className="mt-1 py-3 text-sm font-semibold uppercase tracking-[0.1em] transition-opacity disabled:opacity-60"
+                className="mt-1 py-3.5 md:py-3 text-sm font-semibold uppercase tracking-[0.1em] transition-opacity disabled:opacity-60"
                 style={{ background: 'var(--color-wood)', color: '#fff' }}>
                 {status === 'sending' ? 'Відправляємо...' : 'Надіслати запит'}
               </button>

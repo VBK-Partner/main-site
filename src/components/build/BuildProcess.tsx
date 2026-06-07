@@ -28,34 +28,35 @@ const ITEMS = [
 export default function BuildProcess() {
   return (
     <section id="process" style={{ background: 'var(--color-dark-2)', fontFamily: 'var(--font-display)' }}>
-      <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-20 pb-12 md:pt-28 md:pb-14
+      <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-16 md:pt-28 pb-10 md:pb-14
                       flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
           <p className="text-xs font-semibold tracking-[0.22em] uppercase mb-3"
             style={{ color: 'var(--color-orange)' }}>Як вирішуємо задачу клієнта</p>
-          <h2 className="font-bold text-3xl md:text-4xl text-white"
+          <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl text-white"
             style={{ letterSpacing: '-0.02em' }}>
             Наші цінності
           </h2>
         </div>
         <a href="#quiz"
-          className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold uppercase tracking-[0.1em] transition-opacity hover:opacity-85"
+          className="shrink-0 inline-flex items-center gap-2 px-6 md:px-7 py-3 md:py-3.5 text-xs md:text-sm font-semibold uppercase tracking-[0.1em] transition-opacity hover:opacity-85"
           style={{ background: 'var(--color-orange)', color: 'white' }}>
           Обговорити проєкт →
         </a>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4"
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4"
         style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
         {ITEMS.map(({ num, title, desc, accent }, i) => (
           <div key={num} className="reveal relative overflow-hidden group"
             style={{
               transitionDelay: `${i * 100}ms`,
               borderRight: i < ITEMS.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+              borderBottom: i < ITEMS.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
             }}>
             <span className="absolute right-2 top-0 font-black select-none pointer-events-none"
               style={{
-                fontSize: 'clamp(5rem,11vw,10rem)',
+                fontSize: 'clamp(3rem,11vw,10rem)',
                 color: 'rgba(255,255,255,0.025)',
                 letterSpacing: '-0.05em',
                 lineHeight: 1,
@@ -63,16 +64,16 @@ export default function BuildProcess() {
               {num}
             </span>
 
-            <div className="relative p-8 lg:p-10 flex flex-col gap-5 min-h-[360px] justify-end">
-              <span className="inline-block text-xs font-bold tracking-[0.18em] uppercase px-3 py-1 self-start mb-2"
+            <div className="relative p-6 md:p-8 lg:p-10 flex flex-col gap-4 md:gap-5 min-h-[260px] md:min-h-[360px] justify-end">
+              <span className="inline-block text-[10px] md:text-xs font-bold tracking-[0.18em] uppercase px-3 py-1 self-start mb-2"
                 style={{ background: 'rgba(232,75,0,0.15)', color: 'var(--color-orange)' }}>
                 {accent}
               </span>
-              <span className="font-black text-5xl leading-none"
+              <span className="font-black text-4xl md:text-5xl leading-none"
                 style={{ color: 'var(--color-orange)', letterSpacing: '-0.04em', opacity: 0.85 }}>
                 {num}
               </span>
-              <h3 className="font-bold text-white text-lg"
+              <h3 className="font-bold text-white text-base md:text-lg"
                 style={{ letterSpacing: '-0.01em', lineHeight: 1.25 }}>
                 {title}
               </h3>

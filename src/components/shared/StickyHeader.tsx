@@ -23,24 +23,28 @@ export default function StickyHeader({ accent, ctaHref, ctaLabel }: StickyHeader
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-10 h-14 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 sm:px-6 md:px-10 h-12 md:h-14 transition-all duration-300"
       style={{
         background: scrolled ? 'var(--color-bg)' : 'transparent',
         borderBottom: scrolled ? '1px solid var(--color-border)' : 'none',
         fontFamily: 'var(--font-display)',
       }}
     >
-      <div className="flex items-center gap-6">
+      <div className="flex items-center gap-3 sm:gap-4 md:gap-6 min-w-0">
         <Link href="/"
-          className="flex items-center gap-1.5 transition-colors text-sm"
+          className="flex items-center gap-1.5 transition-colors text-sm shrink-0"
           style={{ color: scrolled ? 'var(--color-text-muted)' : 'rgba(255,255,255,0.55)' }}>
           <ArrowLeft size={13} strokeWidth={1.5} />
           <span className="hidden sm:inline text-xs tracking-[0.08em] uppercase">Головна</span>
         </Link>
-        <span className="font-bold tracking-[0.12em] uppercase text-sm select-none"
-          style={{ color: scrolled ? 'var(--color-text)' : 'white' }}>
-          ВБК<span style={{ color: accentColor }}>·</span>ПАРТНЕР
-        </span>
+        <Link href="/" aria-label="ВБК Партнер" className="flex items-center shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/logo.png" alt="ВБК Партнер"
+            className="h-7 md:h-9 w-auto select-none"
+            style={{
+              filter: scrolled ? 'none' : 'drop-shadow(0 2px 8px rgba(0,0,0,0.35))',
+            }} />
+        </Link>
       </div>
 
       <nav className="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
@@ -69,7 +73,7 @@ export default function StickyHeader({ accent, ctaHref, ctaLabel }: StickyHeader
       </nav>
 
       <a href={ctaHref}
-        className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.1em] px-5 py-2 transition-all duration-200 hover:opacity-85"
+        className="flex items-center gap-2 text-xs md:text-sm font-semibold uppercase tracking-[0.1em] px-3 sm:px-4 md:px-5 py-2 md:py-2 transition-all duration-200 hover:opacity-85 shrink-0"
         style={{ background: accentColor, color: 'white' }}>
         <span className="hidden sm:inline">{ctaLabel}</span>
         <span className="sm:hidden">Зв&apos;язок</span>

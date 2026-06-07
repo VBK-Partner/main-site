@@ -5,6 +5,7 @@ import WoodBento from "@/components/wood/WoodBento";
 import WoodExpertise from "@/components/wood/WoodExpertise";
 import WoodCatalog from "@/components/wood/WoodCatalog";
 import WoodQuiz from "@/components/wood/WoodQuiz";
+import ArticlesSection from "@/components/shared/ArticlesSection";
 import MobileCtaBar from "@/components/shared/MobileCtaBar";
 import Footer from "@/components/shared/Footer";
 
@@ -91,6 +92,7 @@ export default function WoodPage() {
         <WoodExpertise />
         <WoodCatalog />
         <WoodQuiz />
+        <ArticlesSection category="wood" accent="wood" />
         {/* Cross-promo → build */}
         <section
           style={{
@@ -98,7 +100,7 @@ export default function WoodPage() {
             fontFamily: "var(--font-display)",
           }}
         >
-          <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto py-12 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-2"

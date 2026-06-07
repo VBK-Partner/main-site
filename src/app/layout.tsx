@@ -59,7 +59,7 @@ export default function RootLayout({
     name: "VBK Partner",
     alternateName: "ВБК Партнер",
     url: "https://vbk-partner.com",
-    logo: "https://vbk-partner.com/icon.svg",
+    logo: "https://vbk-partner.com/images/logo.png",
     contactPoint: {
       "@type": "ContactPoint",
       telephone: "+380730161111",

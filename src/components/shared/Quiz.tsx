@@ -87,15 +87,15 @@ export default function Quiz({ id = 'quiz', steps, source, accent, theme = 'ligh
     <div id={id} style={{ fontFamily: 'var(--font-display)' }}>
 
       {/* Progress bar */}
-      <div className="mb-10">
+      <div className="mb-8 md:mb-10">
         <div className="flex items-center justify-between mb-3">
           <span className="text-[11px] font-bold tracking-[0.2em] uppercase" style={{ color: textMuted }}>
             {Math.min(step + 1, total)} / {total}
           </span>
           <span className="text-[11px] font-bold tabular-nums" style={{ color: accentColor }}>{progress}%</span>
         </div>
-        <div className="h-[2px] w-full" style={{ background: trackBg }}>
-          <div className="h-[2px] transition-all duration-500"
+        <div className="h-[3px] md:h-[2px] w-full" style={{ background: trackBg }}>
+          <div className="h-[3px] md:h-[2px] transition-all duration-500"
             style={{ width: `${progress}%`, background: accentColor }} />
         </div>
       </div>
@@ -103,7 +103,7 @@ export default function Quiz({ id = 'quiz', steps, source, accent, theme = 'ligh
       {/* Question */}
       {step < steps.length && (
         <div>
-          <p className="font-bold mb-8"
+          <p className="font-bold mb-6 md:mb-8"
             style={{ fontSize: 'clamp(1.05rem,1.6vw,1.25rem)', color: textPrimary, letterSpacing: '-0.01em' }}>
             {steps[step].question}
           </p>
@@ -121,7 +121,7 @@ export default function Quiz({ id = 'quiz', steps, source, accent, theme = 'ligh
                   onClick={() => selectOption(opt)}
                   onMouseEnter={() => setHoveredOpt(opt)}
                   onMouseLeave={() => setHoveredOpt(null)}
-                  className="relative flex items-center gap-5 py-4 px-0 text-left transition-all duration-200 overflow-hidden"
+                  className="relative flex items-center gap-3 md:gap-5 py-3.5 md:py-4 px-0 text-left transition-all duration-200 overflow-hidden"
                   style={{
                     borderBottom: `1px solid ${ruleLine}`,
                     background: 'transparent',
@@ -134,7 +134,7 @@ export default function Quiz({ id = 'quiz', steps, source, accent, theme = 'ligh
                     }} />
 
                   {/* Number */}
-                  <span className="text-[11px] font-bold tabular-nums ml-5 w-5 flex-shrink-0 transition-colors duration-200"
+                  <span className="text-[11px] font-bold tabular-nums ml-3 md:ml-5 w-5 flex-shrink-0 transition-colors duration-200"
                     style={{ color: active ? accentColor : textMuted }}>
                     {String(idx + 1).padStart(2, '0')}
                   </span>
@@ -170,7 +170,7 @@ export default function Quiz({ id = 'quiz', steps, source, accent, theme = 'ligh
       {/* Phone step */}
       {step === steps.length && (
         <form onSubmit={handleSubmit}>
-          <p className="font-bold mb-8"
+          <p className="font-bold mb-6 md:mb-8"
             style={{ fontSize: 'clamp(1.05rem,1.6vw,1.25rem)', color: textPrimary, letterSpacing: '-0.01em' }}>
             Як з вами зв&apos;язатися?
           </p>

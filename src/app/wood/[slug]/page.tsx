@@ -28,8 +28,8 @@ function ProductView({ product }: { product: Product }) {
       <main style={{ fontFamily: 'var(--font-display)', background: 'var(--color-bg)' }}>
 
         {/* Top: image + meta */}
-        <section className="pt-24 md:pt-28 pb-12" style={{ background: 'var(--color-bg-subtle)' }}>
-          <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
+        <section className="pt-20 md:pt-28 pb-10 md:pb-12" style={{ background: 'var(--color-bg-subtle)' }}>
+          <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
             <Link href="/wood#catalog"
               className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.12em] mb-6 hover:opacity-70 transition-opacity"
               style={{ color: 'var(--color-wood)' }}>
@@ -37,7 +37,7 @@ function ProductView({ product }: { product: Product }) {
               До каталогу
             </Link>
 
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start">
               <div className="aspect-[4/3] overflow-hidden border" style={{ borderColor: 'var(--color-border)' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={product.photo} alt={product.title} className="w-full h-full object-cover" />
@@ -47,7 +47,7 @@ function ProductView({ product }: { product: Product }) {
                 <p className="text-xs font-semibold tracking-[0.22em] uppercase mb-3" style={{ color: 'var(--color-wood)' }}>
                   Пиломатеріали
                 </p>
-                <h1 className="font-bold text-3xl md:text-4xl mb-2"
+                <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl mb-2"
                   style={{ color: 'var(--color-text)', letterSpacing: '-0.02em', lineHeight: 1.15 }}>
                   {product.title}
                 </h1>
@@ -79,18 +79,18 @@ function ProductView({ product }: { product: Product }) {
 
         {/* Table */}
         {product.rows && product.tableHeader && (
-          <section id="inquiry" className="py-12 md:py-16">
-            <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
-              <h2 className="font-bold text-2xl md:text-3xl mb-6"
+          <section id="inquiry" className="py-10 md:py-16">
+            <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
+              <h2 className="font-bold text-xl sm:text-2xl md:text-3xl mb-5 md:mb-6"
                 style={{ color: 'var(--color-text)', letterSpacing: '-0.02em' }}>
                 {product.tableType === 'pellet' ? 'Технічні характеристики' : 'Розміри та ціни'}
               </h2>
               <div className="overflow-x-auto border" style={{ borderColor: 'var(--color-border)' }}>
-                <table className="w-full text-sm">
+                <table className="w-full text-sm min-w-[480px]">
                   <thead>
                     <tr style={{ background: 'var(--color-bg-subtle)' }}>
                       {product.tableHeader.map((h, i) => (
-                        <th key={i} className="text-left px-4 py-3 font-semibold"
+                        <th key={i} className="text-left px-3 md:px-4 py-3 font-semibold"
                           style={{ color: 'var(--color-text)', borderBottom: '1px solid var(--color-border)' }}>{h}</th>
                       ))}
                     </tr>
@@ -99,7 +99,7 @@ function ProductView({ product }: { product: Product }) {
                     {product.rows.map((row, ri) => (
                       <tr key={ri} style={{ borderTop: ri === 0 ? 'none' : '1px solid var(--color-border)' }}>
                         {row.map((cell, ci) => (
-                          <td key={ci} className="px-4 py-3"
+                          <td key={ci} className="px-3 md:px-4 py-3"
                             style={{ color: ci === 0 ? 'var(--color-text)' : 'var(--color-text-sec)' }}>
                             {cell}
                           </td>
@@ -122,8 +122,8 @@ function ProductView({ product }: { product: Product }) {
 
         {/* Body */}
         {product.body && product.body.length > 0 && (
-          <section className="py-12 md:py-16" style={{ background: 'var(--color-bg-subtle)' }}>
-            <div className="px-8 md:px-16 lg:px-24 max-w-3xl mx-auto">
+          <section className="py-10 md:py-16" style={{ background: 'var(--color-bg-subtle)' }}>
+            <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-3xl mx-auto">
               {product.body.map((b: BodyBlock, i: number) => {
                 const isSubscribe = b.h === 'Дізнавайтеся першим про акції та знижки'
                 if (isSubscribe) return <SubscribeForm key={i} source={product.slug} />

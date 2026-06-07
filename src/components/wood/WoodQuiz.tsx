@@ -31,21 +31,21 @@ export default function WoodQuiz() {
       <div className="h-px w-full"
         style={{ background: 'linear-gradient(90deg, var(--color-wood-mid) 0%, transparent 60%)' }} />
 
-      <div className="max-w-screen-xl mx-auto px-8 md:px-16 lg:px-24 py-20 md:py-28">
-        <div className="grid md:grid-cols-[5fr_7fr] gap-12 md:gap-20 items-start">
+      <div className="max-w-screen-xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 py-16 md:py-28">
+        <div className="grid md:grid-cols-[5fr_7fr] gap-10 md:gap-20 items-start">
 
           {/* Left — info */}
           <div className="md:sticky md:top-24">
             {/* Label */}
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
               <div className="w-8 h-px" style={{ background: 'var(--color-wood-mid)' }} />
               <span className="text-xs font-bold tracking-[0.28em] uppercase"
                 style={{ color: 'var(--color-wood-mid)' }}>Отримати прайс</span>
             </div>
 
             {/* Headline */}
-            <h2 className="font-black uppercase leading-[0.88] mb-6"
-              style={{ color: '#F5EDD8', fontSize: 'clamp(2.4rem,4vw,4.2rem)', letterSpacing: '-0.03em' }}>
+            <h2 className="font-black uppercase leading-[0.95] mb-6"
+              style={{ color: '#F5EDD8', fontSize: 'clamp(1.7rem,4vw,4.2rem)', letterSpacing: '-0.03em' }}>
               Уточніть<br />наявність<br />і отримайте<br />
               <span style={{ color: 'var(--color-wood-mid)' }}>прайс</span>
             </h2>

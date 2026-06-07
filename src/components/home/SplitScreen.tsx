@@ -50,19 +50,22 @@ export default function SplitScreen() {
       style={{ fontFamily: 'var(--font-display)' }}>
 
       {/* ─── Header ─── */}
-      <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-8 md:px-12 h-16"
+      <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-5 sm:px-8 md:px-12 h-14 md:h-16"
         style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55), transparent)' }}>
-        <span className="text-white font-bold tracking-[0.12em] uppercase text-sm select-none">
-          ВБК<span style={{ color: 'var(--color-orange)' }}>·</span>ПАРТНЕР
-        </span>
-        <div className="flex items-center gap-4">
+        <a href="/" aria-label="ВБК Партнер" className="flex items-center shrink-0">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/logo.png" alt="ВБК Партнер"
+            className="h-8 md:h-11 w-auto select-none"
+            style={{ filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.45))' }} />
+        </a>
+        <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <a href="tel:+380730161111"
             className="flex items-center gap-2 text-sm font-medium transition-colors hover:text-white"
             style={{ color: 'rgba(255,255,255,0.7)' }}>
             <Phone size={14} strokeWidth={1.5} />
             <span className="hidden sm:inline">+38 (073) 016-11-11</span>
           </a>
-          <div className="flex items-center gap-2 pl-3 ml-1" style={{ borderLeft: '1px solid rgba(255,255,255,0.18)' }}>
+          <div className="flex items-center gap-1.5 sm:gap-2 sm:pl-3 sm:ml-1" style={{ borderLeft: '1px solid rgba(255,255,255,0.18)' }}>
             {MESSENGERS.map(m => (
               <a key={m.name} href={m.href} target="_blank" rel="noopener noreferrer"
                 aria-label={m.name}
@@ -118,20 +121,20 @@ export default function SplitScreen() {
             style={{ background: 'rgba(255,255,255,0.1)' }} />
 
           {/* Content — fixed-width inner so it doesn't reflow when panel resizes */}
-          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 pt-20 pb-24 md:pb-20">
+          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 md:p-12 pt-20 pb-28 md:pb-20">
             <span className="text-xs font-bold tracking-[0.28em] uppercase"
               style={{ color: 'var(--color-orange)' }}>
               01 — Будівництво
             </span>
 
-            <div style={{ width: 'min(560px, 92%)' }}>
-              <h2 className="font-extrabold uppercase text-white mb-6"
-                style={{ fontSize: 'clamp(1.9rem,3.4vw,4.2rem)', lineHeight: 1.08, letterSpacing: '-0.02em' }}>
+            <div style={{ width: 'min(560px, 100%)' }}>
+              <h2 className="font-extrabold uppercase text-white mb-4 md:mb-6"
+                style={{ fontSize: 'clamp(1.55rem,5vw,4.2rem)', lineHeight: 1.08, letterSpacing: '-0.02em' }}>
                 Будівництво<br />та реконструкція<br />
                 <span style={{ color: 'var(--color-orange)' }}>комерційних,<br />виробничих об&apos;єктів</span>
               </h2>
-              <p className="text-white/55 mb-8"
-                style={{ fontSize: 'clamp(0.85rem,1vw,0.98rem)', lineHeight: 1.65, maxWidth: '40ch' }}>
+              <p className="text-white/55 mb-6 md:mb-8"
+                style={{ fontSize: 'clamp(0.82rem,1vw,0.98rem)', lineHeight: 1.65, maxWidth: '40ch' }}>
                 Комплексне нове будівництво, реконструкція та капітальний ремонт офісів, складів, виробництв, об&apos;єктів HoReCa, будівництво та монтаж твердопаливних котелень.
               </p>
               <div className="flex items-center gap-4">
@@ -187,20 +190,20 @@ export default function SplitScreen() {
             }} />
 
           {/* Content — right-aligned, fixed-width inner */}
-          <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 pt-20 pb-24 md:pb-20 items-end text-right">
+          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 md:p-12 pt-20 pb-28 md:pb-20 items-end text-right">
             <span className="text-xs font-bold tracking-[0.28em] uppercase"
               style={{ color: 'var(--color-wood-mid)' }}>
               02 — Пиломатеріали
             </span>
 
-            <div style={{ width: 'min(540px, 92%)' }}>
-              <h2 className="font-extrabold uppercase mb-6"
-                style={{ fontSize: 'clamp(1.9rem,3.4vw,4.2rem)', lineHeight: 1.08, letterSpacing: '-0.02em', color: '#F5EDD8' }}>
+            <div style={{ width: 'min(540px, 100%)' }}>
+              <h2 className="font-extrabold uppercase mb-4 md:mb-6"
+                style={{ fontSize: 'clamp(1.55rem,5vw,4.2rem)', lineHeight: 1.08, letterSpacing: '-0.02em', color: '#F5EDD8' }}>
                 Пиломатеріали<br />
                 <span style={{ color: 'var(--color-wood-mid)' }}>власного виробництва</span>
               </h2>
-              <p className="mb-8 ml-auto"
-                style={{ fontSize: 'clamp(0.85rem,1vw,0.98rem)', lineHeight: 1.65, color: 'rgba(245,237,216,0.55)', maxWidth: '40ch' }}>
+              <p className="mb-6 md:mb-8 ml-auto"
+                style={{ fontSize: 'clamp(0.82rem,1vw,0.98rem)', lineHeight: 1.65, color: 'rgba(245,237,216,0.55)', maxWidth: '40ch' }}>
                 Прямі поставки бруса, дошки, палет з виробництва. Опт для бізнесу.
               </p>
               <div className="flex items-center justify-end gap-4">

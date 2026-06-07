@@ -6,6 +6,7 @@ import BuildProcess from "@/components/build/BuildProcess";
 import BuildExpertise from "@/components/build/BuildExpertise";
 import BuildPortfolio from "@/components/build/BuildPortfolio";
 import BuildQuiz from "@/components/build/BuildQuiz";
+import ArticlesSection from "@/components/shared/ArticlesSection";
 import MobileCtaBar from "@/components/shared/MobileCtaBar";
 import Footer from "@/components/shared/Footer";
 
@@ -95,6 +96,7 @@ export default function BuildPage() {
         <BuildExpertise />
         <BuildPortfolio />
         <BuildQuiz />
+        <ArticlesSection category="build" accent="orange" />
         {/* Cross-promo → wood */}
         <section
           style={{
@@ -102,7 +104,7 @@ export default function BuildPage() {
             fontFamily: "var(--font-display)",
           }}
         >
-          <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto py-12 md:py-16 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <p
                 className="text-xs font-semibold tracking-[0.2em] uppercase mb-2"

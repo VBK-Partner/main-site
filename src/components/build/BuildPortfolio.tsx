@@ -21,15 +21,15 @@ const PROJECTS = [
 
 export default function BuildPortfolio() {
   return (
-    <section id="portfolio" className="py-20 md:py-28"
+    <section id="portfolio" className="py-16 md:py-28"
       style={{ background: 'var(--color-bg-subtle)', fontFamily: 'var(--font-display)' }}>
-      <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
+      <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto">
 
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-14">
           <div>
             <p className="text-xs font-semibold tracking-[0.22em] uppercase mb-3"
               style={{ color: 'var(--color-orange)' }}>Портфоліо</p>
-            <h2 className="font-bold text-3xl md:text-4xl"
+            <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl"
               style={{ color: 'var(--color-text)', letterSpacing: '-0.02em' }}>
               Реалізовані об&apos;єкти
             </h2>
@@ -41,7 +41,7 @@ export default function BuildPortfolio() {
           </a>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
           {PROJECTS.map(({ title, area, works, photo }, i) => (
             <div key={title} className="reveal group flex flex-col overflow-hidden"
               style={{
@@ -49,20 +49,20 @@ export default function BuildPortfolio() {
                 border: '1px solid var(--color-border)',
                 background: 'var(--color-bg)',
               }}>
-              <div className="relative overflow-hidden" style={{ height: '220px' }}>
+              <div className="relative overflow-hidden h-44 md:h-56">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={photo} alt={title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0"
                   style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }} />
-                <span className="absolute bottom-4 left-4 text-xs font-bold tracking-[0.15em] uppercase px-2.5 py-1.5"
+                <span className="absolute bottom-3 left-3 md:bottom-4 md:left-4 text-xs font-bold tracking-[0.15em] uppercase px-2.5 py-1.5"
                   style={{ background: 'var(--color-orange)', color: 'white' }}>
                   {area}
                 </span>
               </div>
-              <div className="p-6 flex flex-col gap-3 flex-1">
-                <h3 className="font-bold text-lg"
+              <div className="p-5 md:p-6 flex flex-col gap-3 flex-1">
+                <h3 className="font-bold text-base md:text-lg"
                   style={{ color: 'var(--color-text)', letterSpacing: '-0.01em', lineHeight: 1.25 }}>
                   {title}
                 </h3>

@@ -19,13 +19,13 @@ export default function BuildHero() {
         `,
       }} />
       {/* Orange low-glow */}
-      <div className="absolute bottom-0 left-0 w-[600px] h-[300px] pointer-events-none"
+      <div className="absolute bottom-0 left-0 w-full sm:w-[600px] h-[300px] max-w-full pointer-events-none"
         style={{ background: 'radial-gradient(ellipse at 0% 100%, rgba(232,75,0,0.12) 0%, transparent 65%)' }} />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col flex-1
-                      px-8 md:px-14 lg:px-20 max-w-screen-xl mx-auto w-full
-                      pt-24 pb-0">
+                      px-5 sm:px-8 md:px-14 lg:px-20 max-w-screen-xl mx-auto w-full
+                      pt-20 md:pt-24 pb-0">
 
         {/* ── Category tag ── */}
         <div className="flex items-center gap-3 mb-auto pt-4">
@@ -36,10 +36,10 @@ export default function BuildHero() {
 
         {/* ── Headline ── */}
         <div className="mt-6 mb-0">
-          <h1 className="font-extrabold uppercase text-white"
+          <h1 className="font-extrabold uppercase text-white break-words"
             style={{
-              fontSize: 'clamp(2.6rem,6vw,6.6rem)',
-              lineHeight: 1.02,
+              fontSize: 'clamp(1.85rem,6vw,6.6rem)',
+              lineHeight: 1.05,
               letterSpacing: '-0.025em',
             }}>
             Будівельно-<br />ремонтні <em className="not-italic" style={{ color: 'var(--color-orange)' }}>роботи</em>
@@ -54,9 +54,9 @@ export default function BuildHero() {
           style={{ borderBottom: '1px solid rgba(255,255,255,0.12)' }}>
 
           {/* Col 1 — Description + CTAs */}
-          <div className="flex flex-col justify-between gap-8 py-8 md:pr-10"
+          <div className="flex flex-col justify-between gap-6 md:gap-8 py-6 md:py-8 md:pr-10"
             style={{ borderRight: '1px solid rgba(255,255,255,0.1)' }}>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.65, maxWidth: '38ch' }}>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.65 }} className="md:max-w-[38ch]">
               Виконуємо будівельно-ремонтні роботи на комерційних і виробничих об&apos;єктах будь-якої складності. Від окремого виду робіт до повного циклу. Будівництво та монтаж твердопаливних котелень. Безкоштовний виїзд інженера на об&apos;єкт та прозорий кошторис до початку робіт — ви точно знаєте вартість і терміни ще до підписання договору.
             </p>
             <div className="flex flex-col items-start gap-3">

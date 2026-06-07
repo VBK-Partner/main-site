@@ -30,21 +30,21 @@ export default function BuildQuiz() {
       {/* Top accent stripe */}
       <div className="h-px w-full" style={{ background: 'linear-gradient(90deg, var(--color-orange) 0%, transparent 60%)' }} />
 
-      <div className="max-w-screen-xl mx-auto px-8 md:px-16 lg:px-24 py-20 md:py-28">
-        <div className="grid md:grid-cols-[5fr_7fr] gap-12 md:gap-20 items-start">
+      <div className="max-w-screen-xl mx-auto px-5 sm:px-8 md:px-16 lg:px-24 py-16 md:py-28">
+        <div className="grid md:grid-cols-[5fr_7fr] gap-10 md:gap-20 items-start">
 
           {/* Left — info */}
           <div className="md:sticky md:top-24">
             {/* Label */}
-            <div className="flex items-center gap-3 mb-8">
+            <div className="flex items-center gap-3 mb-6 md:mb-8">
               <div className="w-8 h-px" style={{ background: 'var(--color-orange)' }} />
               <span className="text-xs font-bold tracking-[0.28em] uppercase"
                 style={{ color: 'var(--color-orange)' }}>Безкоштовний виїзд</span>
             </div>
 
             {/* Headline */}
-            <h2 className="font-black uppercase text-white leading-[0.88] mb-6"
-              style={{ fontSize: 'clamp(2.4rem,4vw,4.2rem)', letterSpacing: '-0.03em' }}>
+            <h2 className="font-black uppercase text-white leading-[0.95] mb-6"
+              style={{ fontSize: 'clamp(1.7rem,4vw,4.2rem)', letterSpacing: '-0.03em' }}>
               Розкажіть<br />про ваш<br />
               <span style={{ color: 'var(--color-orange)' }}>об&apos;єкт</span>
             </h2>

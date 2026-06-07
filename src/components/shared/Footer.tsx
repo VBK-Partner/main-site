@@ -22,15 +22,15 @@ const TT = (
 export default function Footer() {
   return (
     <footer style={{ background: 'var(--color-dark-1, #0c0c0c)', color: 'rgba(255,255,255,0.7)', fontFamily: 'var(--font-display)' }}>
-      <div className="px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-16 pb-10">
+      <div className="px-5 sm:px-8 md:px-16 lg:px-24 max-w-screen-xl mx-auto pt-12 md:pt-16 pb-8 md:pb-10">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-10">
 
           {/* Col 1: Brand */}
           <div>
-            <Link href="/" className="inline-block font-black text-2xl text-white mb-4"
-              style={{ letterSpacing: '-0.03em' }}>
-              ВБК <span style={{ color: 'var(--color-orange)' }}>Партнер</span>
+            <Link href="/" aria-label="ВБК Партнер" className="inline-flex items-center mb-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/images/logo.png" alt="ВБК Партнер" className="h-14 w-auto" />
             </Link>
             <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255,255,255,0.55)' }}>
               Будівельно-ремонтні роботи та пиломатеріали власного виробництва.
@@ -59,7 +59,7 @@ export default function Footer() {
               <li><a href="mailto:vbkpartner@ukr.net" className="hover:text-white transition-colors">vbkpartner@ukr.net</a></li>
               <li style={{ color: 'rgba(255,255,255,0.55)' }}>Виробництво: Україна</li>
             </ul>
-            <div className="flex items-center gap-2.5 flex-wrap">
+            <div className="flex items-center gap-2 md:gap-2.5 flex-wrap">
               <a href="viber://chat?number=%2B380730161111" aria-label="Viber"
                 className="w-9 h-9 inline-flex items-center justify-center rounded-full border transition-colors hover:text-white"
                 style={{ borderColor: 'rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.75)' }}>
@@ -95,7 +95,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-14 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3"
+        <div className="mt-10 md:mt-14 pt-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-3"
           style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
           <p style={{ fontSize: '0.8rem', color: 'rgba(255,255,255,0.45)' }}>
             © 2025 ВБК Партнер · Всі права захищені

@@ -21,7 +21,7 @@ export type Product = {
 }
 
 const LUMBER_HEADER = ['Найменування', 'Товщина (h), мм', 'Ширина (b), мм', 'Довжина (L), мм', 'Прайс, грн без ПДВ']
-const PALLET_HEADER = ['Найменування', 'Ширина, мм', 'Довжина, мм', 'Висота, мм', 'Навантаження, кг', 'Ціна, грн/шт']
+const PALLET_HEADER = ['Найменування', 'Ширина, мм', 'Довжина, мм', 'Висота, мм', 'Навантаження, кг', 'Ціна, грн/шт без ПДВ']
 
 // Common price rows
 const BRUS_ROWS: string[][] = [
@@ -122,11 +122,25 @@ const SUBSCRIBE_BLOCK: BodyBlock = {
   text: 'Підпишіться на нашу e-mail розсилку',
 }
 
-const PHOTO_BRUS    = '/images/photo/Брус.jpg'
-const PHOTO_DOSHKA  = '/images/photo/Дошка.jpg'
-const PHOTO_REYKA   = '/images/photo/Рейка.jpg'
-const PHOTO_PALETY  = '/images/photo/піддони.jpg'
-const PHOTO_INSHE   = '/images/photo/Сухостій та інші.jpg'
+const withPrice = (rows: string[][], price: string): string[][] =>
+  rows.map(r => [...r.slice(0, -1), price])
+
+const PRICE_FRESH = '15 000'
+const PRICE_DRY = '22 000'
+
+const PHOTO_BRUS    = '/images/photo/%D0%B1%D1%80%D1%83%D1%81.jpg'
+const PHOTO_BRUSOK  = '/images/photo/%D0%B1%D1%80%D1%83%D1%81%D0%BE%D0%BA.jpg'
+const PHOTO_DOSHKA  = '/images/photo/%D0%94%D0%BE%D1%88%D0%BA%D0%B0.jpg'
+const PHOTO_DOSHKA_BUD    = '/images/photo/%D0%B4%D0%BE%D1%88%D0%BA%D0%B0%20%D0%B1%D1%83%D0%B4%D1%96%D0%B2%D0%B5%D0%BB%D1%8C%D0%BD%D0%B0.jpg'
+const PHOTO_DOSHKA_TONKA  = '/images/photo/%D0%B4%D0%BE%D1%88%D0%BA%D0%B0%20%D1%82%D0%BE%D0%BD%D0%BA%D0%B0%20(%D1%88%D0%B0%D0%BB%D1%96%D0%B2%D0%BA%D0%B0).jpg'
+const PHOTO_REYKA   = '/images/photo/%D1%80%D0%B5%D0%B9%D0%BA%D0%B0.jpg'
+const PHOTO_PALETY  = '/images/photo/%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD%D0%B8.jpg'
+const PHOTO_PALET_POLEHSH  = '/images/photo/%D0%BF%D0%BE%D0%BB%D0%B5%D0%B3%D1%88%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD.png'
+const PHOTO_EVROPALET      = '/images/photo/%D1%94%D0%B2%D1%80%D0%BE%D0%BF%D0%B0%D0%BB%D0%B5%D1%82.jpg'
+const PHOTO_NAPIVPIDDON    = '/images/photo/%D0%BD%D0%B0%D0%BF%D1%96%D0%B2%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD.png'
+const PHOTO_PELETY  = '/images/photo/%D0%BF%D0%B5%D0%BB%D0%B5%D1%82%D0%B0%20%D0%B4%D0%B5%D1%80%D0%B5%D0%B2%D0%BD%D0%B0.jpg'
+const PHOTO_EVROVAHONKA    = '/images/photo/%D1%94%D0%B2%D1%80%D0%BE%D0%B2%D0%B0%D0%B3%D0%BE%D0%BD%D0%BA%D0%B0.jpg'
+const PHOTO_INSHE   = '/images/photo/%D0%A1%D1%83%D1%85%D0%BE%D1%81%D1%82%D1%96%D0%B9%20%D1%82%D0%B0%20%D1%96%D0%BD%D1%88%D1%96.jpg'
 
 export const PRODUCTS: Product[] = [
   // ────── БРУС ──────
@@ -134,7 +148,7 @@ export const PRODUCTS: Product[] = [
     slug: 'brus-obriznyi', cat: 'brus', title: 'Брус обрізний / Брус свіжопил',
     photo: PHOTO_BRUS, short: 'усі розміри · 4 та 6 м',
     priceMeta: 'Ціна за 1 м³ (роздріб)', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: BRUS_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(BRUS_ROWS, PRICE_FRESH),
     bodyLead: 'Пиломатеріали залишаються основою будь-якого будівництва — від приватного будинку до промислового об\u2019єкту. Купити брус дерев\u2019яний у Києві можна у нас: широкий вибір перерізів і видів обробки, доставка по Києву, Київській області та всій Україні.',
     body: [
       { h: 'Де застосовують брус дерев\u2019яний', bullets: [
@@ -158,7 +172,7 @@ export const PRODUCTS: Product[] = [
     slug: 'brus-sukhyi-struhanyi', cat: 'brus', title: 'Брус сухий струганий',
     photo: PHOTO_BRUS, short: 'камерна сушка · стругані поверхні',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: BRUS_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(BRUS_ROWS, PRICE_DRY),
     bodyLead: 'Брус сухий струганий — пиломатеріал квадратного або прямокутного перерізу камерної сушки з гладкою поверхнею після стругання з усіх чотирьох боків.',
     body: [
       { h: 'Технічні характеристики', bullets: [
@@ -175,9 +189,9 @@ export const PRODUCTS: Product[] = [
   // ────── БРУСОК ──────
   {
     slug: 'brusok-obriznyi', cat: 'brusok', title: 'Брусок обрізний / Брусок свіжопил',
-    photo: PHOTO_BRUS, short: '40×40 — 75×75 мм · 3, 4 та 6 м',
+    photo: PHOTO_BRUSOK, short: '40×40 — 75×75 мм · 3, 4 та 6 м',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: BRUSOK_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(BRUSOK_ROWS, PRICE_FRESH),
     bodyLead: 'Брусок — універсальний будівельний матеріал для стропильних систем, перекриттів, каркасів, опалубки та промислової тари. Виготовляється в перерізах від 40×40 до 75×75 мм, довжина від 3 до 6 м або нестандартна під замовлення.',
     body: [
       { h: 'Де застосовують брусок', bullets: [
@@ -192,9 +206,9 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'brusok-sukhyi-struhanyi', cat: 'brusok', title: 'Брусок сухий струганий',
-    photo: PHOTO_BRUS, short: 'камерна сушка · стругані поверхні',
+    photo: PHOTO_BRUSOK, short: 'камерна сушка · стругані поверхні',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: BRUSOK_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(BRUSOK_ROWS, PRICE_DRY),
     bodyLead: 'Брусок струганий — пиломатеріал прямокутного перерізу, оброблений на стругальному верстаті з усіх чотирьох боків. Завдяки такій обробці він має гладеньку рівну поверхню, точно витримані розміри та готовий до використання без додаткового шліфування.',
     body: [
       { h: 'Технічні характеристики', bullets: [
@@ -210,9 +224,9 @@ export const PRODUCTS: Product[] = [
   // ────── ДОШКА ──────
   {
     slug: 'doshka-budivelna', cat: 'doshka', title: 'Дошка будівельна (обрізна)',
-    photo: PHOTO_DOSHKA, short: '40–50 мм · довжина 4 та 6 м',
+    photo: PHOTO_DOSHKA_BUD, short: '40–50 мм · довжина 4 та 6 м',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: DOSHKA_BUD_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(DOSHKA_BUD_ROWS, PRICE_FRESH),
     bodyLead: 'Будівельна обрізна дошка — найбільш затребуваний пиломатеріал у будівництві. Купити дошку обрізну в Києві можна у нас: широкий вибір товщин від 25 до 50 мм, довжини від 2 до 6 м, хвойних порід.',
     body: [
       { h: 'Де застосовують обрізну дошку', bullets: [
@@ -234,9 +248,9 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'doshka-obrizna-shalivka', cat: 'doshka', title: 'Дошка обрізна (Тонка / Шалівка)',
-    photo: PHOTO_DOSHKA, short: '25–30 мм · легка обрізна дошка',
+    photo: PHOTO_DOSHKA_TONKA, short: '25–30 мм · легка обрізна дошка',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: DOSHKA_TONKA_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(DOSHKA_TONKA_ROWS, PRICE_FRESH),
     bodyLead: 'Шалівка — це тонка обрізна дошка, товщина якої зазвичай становить 10–30 мм. На відміну від стандартної будівельної дошки (25–50 мм), шалівка легша, витрачає менше деревини і підходить там, де не потрібна велика несуча здатність — оздоблення, огорожі, опалубка нескладних конструкцій, підшивка стріх.',
     body: [
       { h: 'Де застосовують шалівку (тонку дошку)', bullets: [
@@ -261,7 +275,7 @@ export const PRODUCTS: Product[] = [
     slug: 'doshka-struhana', cat: 'doshka', title: 'Дошка стругана',
     photo: PHOTO_DOSHKA, short: 'оброблена поверхня · готова до фінішу',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: DOSHKA_STR_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(DOSHKA_STR_ROWS, PRICE_DRY),
     bodyLead: 'Стругана дошка — пиломатеріал із рівною обробленою поверхнею, готовий до фінішного монтажу без додаткової шліфовки. Купити стругану дошку в Києві можна у нас: хвойні породи, різні товщина та ширина, відвантаження зі складу або виготовлення під замовлення.',
     body: [
       { h: 'Чим відрізняється від обрізної дошки?', text: 'Стругана дошка — це обрізна дошка, яка пройшла додаткову обробку на стругальному верстаті:', bullets: [
@@ -286,7 +300,7 @@ export const PRODUCTS: Product[] = [
     slug: 'reyka-obrizna', cat: 'reyka', title: 'Рейка обрізна',
     photo: PHOTO_REYKA, short: '20–30 мм · довжина 2, 3, 4 м',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: REYKA_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(REYKA_ROWS, PRICE_FRESH),
     bodyLead: 'Дерев\u2019яна рейка — незамінний матеріал у покрівельних, оздоблювальних і монтажних роботах. Купити рейку дерев\u2019яну в Києві можна у нас: перерізи від 20 до 50 мм, довжина 3 і 6 м, хвойних порід. Точний розпил і рівна геометрія — матеріал готовий до монтажу без додаткової обробки.',
     body: [
       { h: 'Де застосовують дерев\u2019яну рейку', bullets: [
@@ -312,7 +326,7 @@ export const PRODUCTS: Product[] = [
     slug: 'reyka-struhana', cat: 'reyka', title: 'Рейка стругана',
     photo: PHOTO_REYKA, short: 'гладка оброблена поверхня',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
-    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: REYKA_ROWS,
+    tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(REYKA_ROWS, PRICE_DRY),
     bodyLead: 'Рейка стругана — це довгий тонкий пиломатеріал прямокутного перерізу, оброблений на стругальному верстаті з усіх чотирьох боків. Завдяки такій обробці поверхня стає гладенькою, рівною, без задирок і шорсткостей, а розміри витримані з високою точністю.',
     body: [
       { text: 'Виготовляється переважно із хвойних порід деревини — сосни чи ялини, рідше з листяних. Має чисту поверхню, готову до фарбування, лакування чи монтажу без додаткового шліфування.' },
@@ -331,9 +345,9 @@ export const PRODUCTS: Product[] = [
     slug: 'palet-standartnyi', cat: 'palety', title: 'Стандартний дерев\u2019яний піддон (палети)',
     photo: PHOTO_PALETY, short: '1200×1000 та 1200×800 мм',
     tableType: 'pallet', tableHeader: PALLET_HEADER, rows: [
-      ['Дерев\u2019яний піддон', '800',  '1200', '126–144', 'до 1500', 'за запитом'],
-      ['Дерев\u2019яний піддон', '1000', '1200', '132–144', 'до 2000', 'за запитом'],
-      ['Дерев\u2019яний піддон квадратний', '1200', '1200', '132–144', 'до 2000', 'за запитом'],
+      ['Дерев\u2019яний піддон', '800',  '1200', '126–144', 'до 1500', '702,00'],
+      ['Дерев\u2019яний піддон', '1000', '1200', '132–144', 'до 2000', '871,00'],
+      ['Дерев\u2019яний піддон квадратний', '1200', '1200', '132–144', 'до 2000', '936,00'],
     ],
     bodyLead: 'Стандартний дерев\u2019яний піддон розміром 1200×1000 мм та 1200×800 мм — вибір виробничих підприємств, будівельних компаній і агропромислового сектору. Збільшена несуча площа дозволяє розміщувати більше вантажу за одну операцію навантажувача.',
     body: [
@@ -350,10 +364,10 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'palet-polehshenyi', cat: 'palety', title: 'Полегшений дерев\u2019яний піддон (палети)',
-    photo: PHOTO_PALETY, short: '1200×1000 та 1200×800 мм · легкий',
+    photo: PHOTO_PALET_POLEHSH, short: '1200×1000 та 1200×800 мм · легкий',
     tableType: 'pallet', tableHeader: PALLET_HEADER, rows: [
-      ['Полегшений піддон', '800',  '1200', '126–144', 'до 1500', 'за запитом'],
-      ['Полегшений піддон', '1000', '1200', '132–144', 'до 2000', 'за запитом'],
+      ['Полегшений піддон', '800',  '1200', '126–144', 'до 1500', '559,00'],
+      ['Полегшений піддон', '1000', '1200', '132–144', 'до 2000', '728,00'],
     ],
     bodyLead: 'Полегшений піддон розміром 1200×1000 мм та 1200×800 мм — оптимальне рішення для разових або сезонних перевезень легких і середніх вантажів. Завдяки зменшеній товщині дошок маса піддону вдвічі менша за стандартний.',
     body: [
@@ -370,7 +384,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'palet-evropalet', cat: 'palety', title: 'Європалет дерев\u2019яний (EUR)',
-    photo: PHOTO_PALETY, short: '1200×800 мм · EPAL-сертифікація',
+    photo: PHOTO_EVROPALET, short: '1200×800 мм · EPAL-сертифікація',
     tableType: 'pallet', tableHeader: PALLET_HEADER, rows: [
       ['Європалет дерев\u2019яний', '800', '1200', '144', 'до 2500', 'за запитом'],
     ],
@@ -391,9 +405,9 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'palet-napivpaleta', cat: 'palety', title: 'Напівпалета дерев\u2019яна 800×600 мм',
-    photo: PHOTO_PALETY, short: 'напівпіддон · мерчандайзинг',
+    photo: PHOTO_NAPIVPIDDON, short: 'напівпіддон · мерчандайзинг',
     tableType: 'pallet', tableHeader: PALLET_HEADER, rows: [
-      ['Напівпалета (напівпіддон)', '600', '800', '144', 'до 700', 'за запитом'],
+      ['Напівпалета (напівпіддон)', '600', '800', '144', 'до 700', '468,00'],
     ],
     bodyLead: 'Напівпалета дерев\u2019яна 800×600 мм (напівпіддон) — практичне рішення для логістики, зберігання та мерчандайзингу. Це половина стандартної європалети, що робить її ідеальною для роботи з товарами невеликого об\u2019єму без переплати за зайвий матеріал.',
     body: [
@@ -412,7 +426,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: 'pelety', cat: 'pelety', title: 'Пелети із деревини',
     subtitle: 'паливні пелети 6–8 мм A1',
-    photo: PHOTO_INSHE, short: 'натуральне гранульоване паливо',
+    photo: PHOTO_PELETY, short: 'паливні пелети 6–8 мм A1',
     priceMeta: 'Ціна: 15 000,00 грн', priceDiscount: 'Ціна вказана за 1 тонну. Діють оптові ціни та знижки від обсягу.',
     tableType: 'pellet', tableHeader: ['Параметри', 'Значення'], rows: [
       ['Діаметр', '6 мм / 8 мм'],
@@ -461,25 +475,17 @@ export const PRODUCTS: Product[] = [
     cta: 'price',
   },
   {
-    slug: 'imitatsiia-brusa', cat: 'inshe', title: 'Імітація бруса',
-    photo: PHOTO_INSHE, short: 'фасади та внутрішнє оздоблення',
-    bodyLead: 'Виглядає як брус — монтується як вагонка. Популярний вибір для фасадів і внутрішнього оздоблення. Імітація бруса — це стругана дошка з фрезерованим профілем на лицьовій стороні, що імітує горизонтальні вінці зрубу. Монтується на стіни і стелі внахлест або в паз, утворюючи рівну поверхню з характерним рельєфом «під брус». На відміну від справжнього профільованого бруса, імітація є суто оздоблювальним матеріалом — вона не несе навантаження, але дає той самий естетичний ефект дерев\u2019яного інтер\u2019єру або фасаду.',
+    slug: 'dranka', cat: 'inshe', title: 'Дранка',
+    photo: PHOTO_INSHE, short: 'традиційний покрівельний матеріал',
+    bodyLead: 'Дерев\u2019яна дранка — традиційний натуральний матеріал, який століттями використовують для покрівель, фасадів та оздоблення. Виготовляється шляхом колення деревини вздовж волокон, що зберігає природну структуру дерева і забезпечує високу довговічність.',
     body: [
-      { h: 'Де застосовують імітацію бруса', bullets: [
-        'Внутрішнє оздоблення: обшивка стін і стель у житлових кімнатах, передпокоях, заміських будинках — ефект зрубу без будівництва зрубу.',
-        'Фасади будівель: зовнішня обшивка каркасних і цегляних будинків, дач, альтанок — натуральний вигляд дерев\u2019яного фасаду.',
-        'Лазні та сауни: оздоблення стін і стель у банних приміщеннях — гладка поверхня легко миється і не накопичує бруд.',
-        'Альтанки та тераси: обшивка стін альтанок, веранд і зон відпочинку — стійкість до вологи при обробці захисним просоченням.',
-        'Комерційні інтер\u2019єри: ресторани, кафе, готелі, офіси в стилі «еко» або рустик — швидке і бюджетне рішення для дерев\u2019яного інтер\u2019єру.',
-        'Дитячі та ігрові кімнати: безпечний натуральний матеріал без різких запахів — підходить для оздоблення дитячих просторів.',
-      ]},
-      { text: 'Купити імітацію бруса в Києві можна у нас: хвойні породи, різні товщини та ширини профілю, відвантаження зі складу або виготовлення під замовлення. Доставка по Києву та Київській області — власним транспортом. Від 10 м³ — оптові знижки.' },
+      { text: 'Зв\u2019яжіться з нами — підберемо потрібну позицію та узгодимо обсяг.' },
     ],
     cta: 'price',
   },
   {
     slug: 'evrovahonka', cat: 'inshe', title: 'Євровагонка',
-    photo: PHOTO_INSHE, short: 'оздоблювальна дошка з пазом',
+    photo: PHOTO_EVROVAHONKA, short: 'оздоблювальна дошка з пазом',
     bodyLead: 'Євровагонка — оздоблювальна дошка з фрезерованим профілем «гребінь–паз» і вентиляційними канавками на тильній стороні. Євровагонка має чіткі допуски по товщині і ширині, глибший паз для щільного з\u2019єднання і обов\u2019язкові вентиляційні канавки на зворотній стороні. Завдяки цим канавкам між дошкою і стіною циркулює повітря, що запобігає накопиченню вологи і появі грибка. Звичайна вагонка виготовляється за менш жорсткими вимогами, тому геометрія може відрізнятися від дошки до дошки, а паз — бути менш глибоким.',
     body: [
       { h: 'Де застосовують євровагонку', bullets: [
