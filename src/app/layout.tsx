@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Manrope, Onest } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 
@@ -93,6 +94,18 @@ export default function RootLayout({
   return (
     <html lang="uk" className={`${manrope.variable} ${onest.variable}`}>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-X4J37BHCTL"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-X4J37BHCTL');
+          `}
+        </Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
