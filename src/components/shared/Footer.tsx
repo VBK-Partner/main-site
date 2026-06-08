@@ -56,7 +56,7 @@ export default function Footer() {
               <li><a href="tel:+380730161111" className="hover:text-white transition-colors">+38 (073) 016-11-11</a></li>
               <li><a href="tel:+380750161111" className="hover:text-white transition-colors">+38 (075) 016-11-11</a></li>
               <li><a href="tel:+380770161111" className="hover:text-white transition-colors">+38 (077) 016-11-11</a></li>
-              <li><a href="mailto:vbkpartner@ukr.net" className="hover:text-white transition-colors">vbkpartner@ukr.net</a></li>
+              <li><a href="mailto:office@vbk-partner.com" className="hover:text-white transition-colors">office@vbk-partner.com</a></li>
               <li style={{ color: 'rgba(255,255,255,0.55)' }}>Виробництво: Україна</li>
             </ul>
             <div className="flex items-center gap-2 md:gap-2.5 flex-wrap">

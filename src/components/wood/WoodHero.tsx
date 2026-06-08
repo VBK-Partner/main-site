@@ -91,14 +91,21 @@ export default function WoodHero() {
             ))}
           </div>
 
-          {/* Col 3 — Note */}
+          {/* Col 3 — B2B */}
           <div className="flex flex-col justify-end py-8 md:pl-10">
-            <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-2"
+            <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-3"
               style={{ color: 'rgba(245,237,216,0.18)' }}>
-              Гарантія
+              B2B-партнерство
             </p>
-            <p style={{ color: 'rgba(245,237,216,0.45)', fontSize: '0.88rem', lineHeight: 1.6, maxWidth: '28ch' }}>
-              Відвантажуємо в день замовлення. Доставка по всій Україні.
+            <p className="font-bold mb-3"
+              style={{ color: 'rgba(245,237,216,0.7)', fontSize: '0.88rem', lineHeight: 1.5 }}>
+              Для бізнесу, якому потрібна стабільність
+            </p>
+            <p style={{ color: 'rgba(245,237,216,0.62)', fontSize: '0.84rem', lineHeight: 1.65 }}>
+              Якщо ваш бізнес регулярно потребує деревини — ми готові стати вашим постійним постачальником на вигідних умовах.
+            </p>
+            <p className="mt-2" style={{ color: 'rgba(245,237,216,0.62)', fontSize: '0.84rem', lineHeight: 1.65 }}>
+              Стабільні поставки важливіші за разово знижену ціну. Ми це розуміємо і пропонуємо партнерство, а не разову угоду.
             </p>
           </div>
 

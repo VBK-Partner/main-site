@@ -50,15 +50,25 @@ export default function BuildHero() {
         <div className="w-full mt-10" style={{ height: '1px', background: 'rgba(255,255,255,0.12)' }} />
 
         {/* ── Bottom info row ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 mt-0 mb-0"
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr_3fr] mt-0 mb-0"
           style={{ borderBottom: '1px solid rgba(255,255,255,0.12)' }}>
 
           {/* Col 1 — Description + CTAs */}
-          <div className="flex flex-col justify-between gap-6 md:gap-8 py-6 md:py-8 md:pr-10"
+          <div className="flex flex-col justify-between gap-6 md:gap-8 py-6 md:py-8 md:pr-12"
             style={{ borderRight: '1px solid rgba(255,255,255,0.1)' }}>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.65 }} className="md:max-w-[38ch]">
-              Виконуємо будівельно-ремонтні роботи на комерційних і виробничих об&apos;єктах будь-якої складності. Від окремого виду робіт до повного циклу. Будівництво та монтаж твердопаливних котелень. Безкоштовний виїзд інженера на об&apos;єкт та прозорий кошторис до початку робіт — ви точно знаєте вартість і терміни ще до підписання договору.
-            </p>
+            <ul className="flex flex-col gap-2.5">
+              {[
+                'Будівельно-ремонтні роботи на комерційних і виробничих об\u2019єктах будь-якої складності',
+                'Від окремого виду робіт до повного циклу',
+                'Будівництво та монтаж твердопаливних котелень',
+                'Безкоштовний виїзд інженера на об\u2019єкт та прозорий кошторис до початку робіт — ви точно знаєте вартість і терміни ще до підписання договору',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-2.5">
+                  <span className="mt-[0.35em] shrink-0 w-1.5 h-1.5" style={{ background: 'var(--color-orange)' }} />
+                  <span style={{ color: 'rgba(255,255,255,0.62)', fontSize: '0.9rem', lineHeight: 1.6 }}>{item}</span>
+                </li>
+              ))}
+            </ul>
             <div className="flex flex-col items-start gap-3">
               <a href="#quiz"
                 className="inline-flex items-center gap-3 px-6 py-3 text-white font-bold uppercase tracking-[0.12em] text-xs hover:opacity-90 transition-opacity"
@@ -78,17 +88,17 @@ export default function BuildHero() {
           </div>
 
           {/* Col 2 — Stats */}
-          <div className="flex flex-col justify-between py-8 md:px-10 gap-0"
+          <div className="flex flex-col justify-between py-8 md:px-8 gap-0"
             style={{ borderRight: '1px solid rgba(255,255,255,0.1)' }}>
             {[
               { num: '200+',  label: "реалізованих об'єктів" },
               { num: '10+',   label: 'років на ринку' },
               { num: '0 грн', label: 'виїзд та кошторис' },
             ].map(({ num, label }, i) => (
-              <div key={label} className="flex items-baseline gap-3"
+              <div key={label} className="flex items-baseline gap-2"
                 style={{ paddingTop: i > 0 ? '1rem' : 0, borderTop: i > 0 ? '1px solid rgba(255,255,255,0.07)' : 'none' }}>
                 <span className="font-black text-white tabular-nums"
-                  style={{ fontSize: 'clamp(1.5rem,2.4vw,2.2rem)', letterSpacing: '-0.04em', lineHeight: 1 }}>
+                  style={{ fontSize: 'clamp(1.5rem,2.2vw,2.2rem)', letterSpacing: '-0.04em', lineHeight: 1 }}>
                   {num}
                 </span>
                 <span className="text-[10px] tracking-[0.08em] uppercase"
@@ -99,15 +109,15 @@ export default function BuildHero() {
             ))}
           </div>
 
-          {/* Col 3 — Free visit note */}
-          <div className="flex flex-col justify-end py-8 md:pl-10">
-            <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-2"
-              style={{ color: 'rgba(255,255,255,0.18)' }}>
+          {/* Col 3 — Quality guarantee */}
+          <div className="flex flex-col justify-center py-8 md:pl-8">
+            <p className="text-[10px] font-bold tracking-[0.22em] uppercase mb-3"
+              style={{ color: 'var(--color-orange)' }}>
               Гарантія якості
             </p>
             <p className="leading-relaxed"
-              style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.85rem', maxWidth: '24ch' }}>
-              Виїзд на об&apos;єкт та підготовка кошторису — безкоштовно.
+              style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.88rem' }}>
+              Робимо одразу правильно — щоб не переробляти. А якщо щось пішло не так — це наша відповідальність, не ваш головний біль.
             </p>
           </div>
 

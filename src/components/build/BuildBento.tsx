@@ -1,68 +1,37 @@
 import { ArrowRight } from 'lucide-react'
 
-const STATS = [
-  { num: '200+',              label: 'успішних проектів' },
-  { num: '10+',               label: 'років на ринку' },
-  { num: '0 грн',              label: 'виїзд і кошторис' },
-  { num: 'Київ\nта вся\nУкраїна', label: 'географія робіт' },
+const PARAGRAPHS = [
+  'ВБК Партнер займається будівництвом і ремонтом комерційних та виробничих об\u2019єктів — офісів, складів, виробничих цехів, ресторанів і котелень. Беремося як за окремий вид робіт, так і за повний цикл: від фундаменту до здачі під ключ.',
+  'За 10 років реалізували понад 200 об\u2019єктів — від невеликих ремонтів до масштабних будівельних проєктів. Працюємо з профільними бригадами під кожен напрямок — покрівля, фасад, інженерія, внутрішнє оздоблення йдуть паралельно, без простоїв і втрати якості.',
+  'Окремо беремося за покрівельні та фасадні роботи, монтаж інженерних систем, капітальний ремонт приміщень, зведення металевих і дерев\u2019яних конструкцій. Також будуємо та монтуємо твердопаливні котельні під ключ — від проєкту до першого запуску.',
+  'Ми не беремо оплату за виїзд на об\u2019єкт і не просимо аванс за кошторис. Чому? Тому що впевнені: якщо ми правильно оцінимо задачу й чесно запропонуємо умови — більшість замовників оберуть нас. Практика це підтверджує.',
 ]
 
 export default function BuildBento() {
   return (
     <section style={{ background: '#111111', fontFamily: 'var(--font-display)' }}>
-      <div className="mx-auto max-w-screen-xl px-5 sm:px-8 md:px-14 lg:px-20 py-16 md:py-28">
+      <div className="mx-auto max-w-screen-xl px-5 sm:px-8 md:px-14 lg:px-20 py-14 md:py-24"
+        style={{ borderTop: '1px solid rgba(255,255,255,0.07)' }}>
 
-        <div className="grid grid-cols-1 lg:grid-cols-[5fr_7fr] gap-12 md:gap-16 lg:gap-0"
-          style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '2.5rem' }}>
+        <p className="text-[10px] font-bold tracking-[0.32em] uppercase mb-8"
+          style={{ color: 'var(--color-orange)' }}>Про компанію</p>
 
-          {/* Left — positioning */}
-          <div className="flex flex-col justify-between lg:pr-16
-            lg:border-r lg:border-white/[0.07]">
-            <div>
-              <p className="text-[10px] font-bold tracking-[0.32em] uppercase mb-6 md:mb-8"
-                style={{ color: 'var(--color-orange)' }}>Про компанію</p>
-              <h2 className="font-black uppercase text-white leading-[0.95] mb-6 md:mb-8"
-                style={{ fontSize: 'clamp(1.6rem,5vw,4rem)', letterSpacing: '-0.03em' }}>
-                Один<br />підрядник —<br />весь обсяг
-              </h2>
-              <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.92rem', lineHeight: 1.65 }} className="md:max-w-[36ch]">
-                ВБК Партнер — виробничо-будівельна компанія, яка спеціалізується на будівельно-ремонтних роботах на комерційних і виробничих об&apos;єктах та власному виробництві пиломатеріалів.
-              </p>
-            </div>
-            <a href="#quiz"
-              className="inline-flex items-center gap-2 mt-8 md:mt-10 text-xs font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-70 self-start"
-              style={{ color: 'var(--color-orange)' }}>
-              Залишити заявку <ArrowRight size={12} strokeWidth={3} />
-            </a>
-          </div>
-
-          {/* Right — 2×2 stats */}
-          <div className="grid grid-cols-2 lg:pl-16">
-            {STATS.map(({ num, label }, i) => (
-              <div key={label}
-                className="reveal flex flex-col justify-end py-6 md:py-8"
-                style={{
-                  paddingLeft: i % 2 === 1 ? '1rem' : '0',
-                  paddingRight: i % 2 === 0 ? '1rem' : '0',
-                  borderRight: i % 2 === 0 ? '1px solid rgba(255,255,255,0.07)' : 'none',
-                  borderBottom: i < 2 ? '1px solid rgba(255,255,255,0.07)' : 'none',
-                  paddingTop: i >= 2 ? '1.5rem' : '0',
-                  transitionDelay: `${i * 80}ms`,
-                }}>
-                <div className="font-black text-white tabular-nums leading-none mb-2 break-words"
-                  style={{ fontSize: 'clamp(1.4rem,4vw,4rem)', letterSpacing: '-0.04em', whiteSpace: 'pre-line' }}>
-                  {num}
-                </div>
-                <div className="text-[11px] md:text-xs font-medium"
-                  style={{ color: 'rgba(255,255,255,0.3)' }}>
-                  {label}
-                </div>
-              </div>
-            ))}
-          </div>
-
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-6 mb-10">
+          {PARAGRAPHS.map((p, i) => (
+            <p key={i} style={{ color: 'rgba(255,255,255,0.62)', fontSize: '0.97rem', lineHeight: 1.75 }}>
+              {p}
+            </p>
+          ))}
         </div>
+
+        <a href="#quiz"
+          className="inline-flex items-center gap-3 px-7 py-3.5 text-white font-bold uppercase tracking-[0.12em] text-xs hover:opacity-90 transition-opacity"
+          style={{ background: 'var(--color-orange)' }}>
+          Залишити заявку <ArrowRight size={13} strokeWidth={3} />
+        </a>
+
       </div>
     </section>
   )
 }
+
