@@ -28,7 +28,8 @@ export default function Footer() {
 
           {/* Col 1: Brand */}
           <div>
-            <Link href="/" aria-label="ВБК Партнер" className="inline-flex items-center mb-4">
+            <Link href="/" aria-label="ВБК Партнер" className="inline-flex items-center mb-4 p-2 -ml-2 rounded"
+              style={{ background: 'rgba(255,255,255,0.95)' }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/images/logo.png" alt="ВБК Партнер" className="h-14 w-auto" />
             </Link>
