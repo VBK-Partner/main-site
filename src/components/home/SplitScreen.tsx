@@ -52,11 +52,11 @@ export default function SplitScreen() {
       {/* ─── Header ─── */}
       <header className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-5 sm:px-8 md:px-12 h-14 md:h-16"
         style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.55), transparent)' }}>
-        <a href="/" aria-label="ВБК Партнер" className="flex items-center shrink-0">
+        <a href="/" aria-label="ВБК Партнер" className="flex items-center shrink-0 px-2 py-1 rounded"
+          style={{ background: 'rgba(255,255,255,0.95)' }}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/logo.png" alt="ВБК Партнер"
-            className="h-8 md:h-11 w-auto select-none"
-            style={{ filter: 'drop-shadow(0 2px 10px rgba(0,0,0,0.45))' }} />
+            className="h-8 md:h-11 w-auto select-none" />
         </a>
         <div className="flex items-center gap-2 sm:gap-4 shrink-0">
           <a href="tel:+380730161111"
@@ -121,7 +121,7 @@ export default function SplitScreen() {
             style={{ background: 'rgba(255,255,255,0.1)' }} />
 
           {/* Content — fixed-width inner so it doesn't reflow when panel resizes */}
-          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 md:p-12 pt-20 pb-28 md:pb-20">
+          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 md:p-12 pt-32 md:pt-36 pb-28 md:pb-20">
             <span className="text-xs font-bold tracking-[0.28em] uppercase"
               style={{ color: 'var(--color-orange)' }}>
               01 — Будівництво
@@ -190,7 +190,7 @@ export default function SplitScreen() {
             }} />
 
           {/* Content — right-aligned, fixed-width inner */}
-          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 md:p-12 pt-20 pb-28 md:pb-20 items-end text-right">
+          <div className="absolute inset-0 flex flex-col justify-between p-6 sm:p-8 md:p-12 pt-32 md:pt-36 pb-28 md:pb-20 items-end text-right">
             <span className="text-xs font-bold tracking-[0.28em] uppercase"
               style={{ color: 'var(--color-wood-mid)' }}>
               02 — Пиломатеріали
