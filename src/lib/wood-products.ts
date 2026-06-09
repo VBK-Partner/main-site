@@ -129,6 +129,8 @@ const PRICE_FRESH = '15 000'
 const PRICE_DRY = '22 000'
 
 const PHOTO_BRUS    = '/images/photo/%D0%B1%D1%80%D1%83%D1%81.jpg'
+const PHOTO_BRUS_OBR = '/images/photo/%D0%B1%D1%80%D1%83%D1%81%20%D0%BE%D0%B1%D1%80%D1%96%D0%B7%D0%BD%D0%B8%D0%B9.jpg'
+const PHOTO_BRUS_STR = '/images/photo/%D0%B1%D1%80%D1%83%D1%81%20%D1%81%D1%82%D1%80%D1%83%D0%B3%D0%B0%D0%BD%D0%B8%D0%B9.jpg'
 const PHOTO_BRUSOK  = '/images/photo/%D0%B1%D1%80%D1%83%D1%81%D0%BE%D0%BA.jpg'
 const PHOTO_DOSHKA  = '/images/photo/%D0%94%D0%BE%D1%88%D0%BA%D0%B0.jpg'
 const PHOTO_DOSHKA_STR    = '/images/photo/%D0%B4%D0%BE%D1%88%D0%BA%D0%B0%20%D1%81%D1%82%D1%80%D1%83%D0%B3%D0%B0%D0%BD%D0%B0.jpg'
@@ -136,6 +138,8 @@ const PHOTO_DOSHKA_BUD    = '/images/photo/%D0%B4%D0%BE%D1%88%D0%BA%D0%B0%20%D0%
 const PHOTO_DOSHKA_TONKA  = '/images/photo/%D0%B4%D0%BE%D1%88%D0%BA%D0%B0%20%D1%82%D0%BE%D0%BD%D0%BA%D0%B0%20(%D1%88%D0%B0%D0%BB%D1%96%D0%B2%D0%BA%D0%B0).jpg'
 const PHOTO_REYKA   = '/images/photo/%D1%80%D0%B5%D0%B9%D0%BA%D0%B0.jpg'
 const PHOTO_PALETY  = '/images/photo/%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD%D0%B8.jpg'
+const PHOTO_PALLET_STD = '/images/photo/%D1%81%D1%82%D0%B0%D0%BD%D0%B4%D0%B0%D1%80%D1%82%D0%BD%D0%B8%D0%B9%20%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD%20(%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3).jpg'
+const PHOTO_SUKHOSTIY_PROM = '/images/photo/%D0%BF%D1%80%D0%BE%D0%BC%D0%B8%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B9%20%D1%81%D1%83%D1%85%D0%BE%D1%81%D1%82%D1%96%D0%B9%20(%D0%BA%D0%B0%D1%82%D0%B0%D0%BB%D0%BE%D0%B3).jpg'
 const PHOTO_PALET_POLEHSH  = '/images/photo/%D0%BF%D0%BE%D0%BB%D0%B5%D0%B3%D1%88%D0%B5%D0%BD%D0%BD%D0%B8%D0%B9%20%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD.png'
 const PHOTO_EVROPALET      = '/images/photo/%D1%94%D0%B2%D1%80%D0%BE%D0%BF%D0%B0%D0%BB%D0%B5%D1%82.jpg'
 const PHOTO_NAPIVPIDDON    = '/images/photo/%D0%BD%D0%B0%D0%BF%D1%96%D0%B2%D0%BF%D1%96%D0%B4%D0%B4%D0%BE%D0%BD.png'
@@ -149,7 +153,7 @@ export const PRODUCTS: Product[] = [
   // ────── БРУС ──────
   {
     slug: 'brus-obriznyi', cat: 'brus', title: 'Брус обрізний / Брус свіжопил',
-    photo: PHOTO_BRUS, short: 'усі розміри · 4 та 6 м',
+    photo: PHOTO_BRUS_OBR, short: 'усі розміри · 4 та 6 м',
     priceMeta: 'Ціна за 1 м³ (роздріб)', priceDiscount: 'Знижки до 25% в залежності від обсягів',
     tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(BRUS_ROWS, PRICE_FRESH),
     bodyLead: 'Пиломатеріали залишаються основою будь-якого будівництва — від приватного будинку до промислового об\u2019єкту. Купити брус дерев\u2019яний у Києві можна у нас: широкий вибір перерізів і видів обробки, доставка по Києву, Київській області та всій Україні.',
@@ -173,7 +177,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'brus-sukhyi-struhanyi', cat: 'brus', title: 'Брус сухий струганий',
-    photo: PHOTO_BRUS, short: 'камерна сушка · стругані поверхні',
+    photo: PHOTO_BRUS_STR, short: 'камерна сушка · стругані поверхні',
     priceMeta: 'Ціна за 1 м³ у роздріб', priceDiscount: 'Знижки до 25% в залежності від обсягів',
     tableType: 'lumber', tableHeader: LUMBER_HEADER, rows: withPrice(BRUS_ROWS, PRICE_DRY),
     bodyLead: 'Брус сухий струганий — пиломатеріал квадратного або прямокутного перерізу камерної сушки з гладкою поверхнею після стругання з усіх чотирьох боків.',
@@ -346,7 +350,7 @@ export const PRODUCTS: Product[] = [
   // ────── ПАЛЕТИ ──────
   {
     slug: 'palet-standartnyi', cat: 'palety', title: 'Стандартний дерев\u2019яний піддон (палети)',
-    photo: PHOTO_PALETY, short: '1200×1000 та 1200×800 мм',
+    photo: PHOTO_PALLET_STD, short: '1200×1000 та 1200×800 мм',
     tableType: 'pallet', tableHeader: PALLET_HEADER, rows: [
       ['Дерев\u2019яний піддон', '800',  '1200', '126–144', 'до 1500', '702,00'],
       ['Дерев\u2019яний піддон', '1000', '1200', '132–144', 'до 2000', '871,00'],
@@ -470,7 +474,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: 'sukhostiy', cat: 'inshe', title: 'Промисловий сухостій',
     subtitle: 'пиломатеріали та кругляк',
-    photo: PHOTO_SUKHOSTIY_NEW, short: 'низька вологість · стабільна геометрія',
+    photo: PHOTO_SUKHOSTIY_PROM, short: 'низька вологість · стабільна геометрія',
     bodyLead: 'В нашому асортименті сухостій — це діловий кругляк переважно хвойних порід, який пройшов природне висихання на кореню. Завдяки низькій початковій вологості (до 20%) отримані пиломатеріали мають стабільну геометрію після розпилу: їх не крутить, не веде і не коробить. Це робить сухостій надійною сировиною для широкого спектру будівельних і виробничих завдань.',
     body: [
       { text: 'Зв\u2019яжіться з нами — підберемо потрібну позицію.' },
